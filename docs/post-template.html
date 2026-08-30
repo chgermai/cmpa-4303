@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ POST TITLE }} — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>{{ POST TITLE }}</h1>
+      <p class="post-meta">
+        {{ MONTH DAY, YEAR }} - tags: {{ tag-one }}, {{ tag-two }}
+      </p>
+
+      <p class="post-lede">
+        {{ One or two sentence synopsys, what broke, or what almost broke. }}
+      </p>
+
+      <h2>What Happened</h2>
+      <p>{{ The incident itself. Keep it to the point }}</p>
+
+      <h2>The Fix</h2>
+      <p>
+        {{ What actually solved it and what didn't. Point out anything absurd.
+        }}
+      </p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>
+        {{ Pick one term from the story and translate it for normal humans. }}
+      </p>
+
+      <h2>Lessons Learned</h2>
+      <p>
+        {{ The closing comment — what would you do differently, or something
+        humorous that ties it together. }}
+      </p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>
