@@ -22,5 +22,5 @@ repo-local documentation for how future posts get added.
 - Added a `<header><nav>` block to `index.html` linking Home and Posts.
 - Post pages reuse the same nav, pointing back to `../index.html`.
 - New CSS classes (`nav a`, `.post-meta`, `.post-lede`, `.post-list`,
-  `.post-list-date`) extend the existing design tokens in `style.css`
+  `.post-list-date`) extend the existing design tokens in `css/style.css`
   rather than introducing new colors/spacing values.

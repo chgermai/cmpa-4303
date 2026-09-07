@@ -1,6 +1,6 @@
 # Responsive CSS scaffolding notes
 
-Context for the mobile/desktop scaffolding added to `style.css`. Not linked from
+Context for the mobile/desktop scaffolding added to `css/style.css`. Not linked from
 `index.html` — kept as repo-local documentation, not part of the published site.
 
 ## Approach
