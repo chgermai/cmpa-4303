@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Buffer That Got Stuck — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Buffer That Got Stuck</h1>
+      <p class="post-meta">February 2018 - tags: hardware, multicast</p>
+
+      <p class="post-lede">
+        One single network port developed a very specific, very stubborn hardware problem that only affected traffic taking one particular path.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>Multicast traffic heading through one specific network port started getting dropped, causing a monitoring outage for a downstream system. The port itself had a stuck internal buffer, a known issue with that model of hardware, which caused a steadily increasing number of packets to be discarded.</p>
+
+      <h2>The Fix</h2>
+      <p>Shutting down the affected interface stopped the immediate bleeding, and a firmware upgrade on the surrounding hardware was identified as the permanent fix.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>An input buffer is a small holding area where a network port temporarily stores incoming data before processing it, similar to a mail slot that briefly holds letters before someone sorts them. When that slot gets physically jammed, letters just start falling on the floor instead of being delivered.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Not every outage is a configuration mistake or a human error, sometimes a piece of silicon just develops a bad habit. Matching a symptom against a known vendor bug list early can save a lot of time otherwise spent staring at configs that were never the problem.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

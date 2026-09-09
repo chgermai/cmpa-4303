@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Cable That Was Plugged In Wrong, on Paper — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Cable That Was Plugged In Wrong, on Paper</h1>
+      <p class="post-meta">June 2020 - tags: link-aggregation, broadcast</p>
+
+      <p class="post-lede">
+        A same day router swap left a network connection configured just wrong enough to break playback for a national sports feed.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>A live sports broadcast started returning errors shortly after an edge router was swapped from one vendor's hardware to another's as part of planned maintenance. The new router's connection to a downstream network appliance had been set up with a slightly incorrect configuration for how the multiple physical links should work together as one logical connection.</p>
+
+      <h2>The Fix</h2>
+      <p>Once identified, the configuration was corrected and the logical connection came back online, restoring playback about twenty five minutes after the initial report.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>When several physical network cables are meant to act as one combined, faster connection, that only works if both ends agree on exactly how to bundle them. Get that agreement even slightly wrong and the two ends might as well be speaking different dialects of the same language.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>A hardware swap is never really finished the moment the new box powers on, it is finished once someone verifies every downstream dependency still behaves the way it used to. A short, deliberate post change check would have caught this before viewers did.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

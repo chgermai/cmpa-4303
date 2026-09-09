@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Decommissioning Day Goes Sideways — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Decommissioning Day Goes Sideways</h1>
+      <p class="post-meta">August 2019 - tags: decommissioning, routing</p>
+
+      <p class="post-lede">
+        Turning off equipment that was supposed to be safely retired quietly pulled the rug out from under the equipment that had replaced it.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>Connectivity to an outside office and several broadcast channels dropped for about ten minutes during the planned retirement of old internet routers in favor of newer replacements. Shutting down a temporary bridging connection, believed to be harmless, revealed that the new routers had actually still been depending on the old ones to advertise certain routes to the internet provider the whole time.</p>
+
+      <h2>The Fix</h2>
+      <p>The change was reverted immediately, restoring the path within the outage window, and a permanent fix that let the new routers advertise those routes independently was reviewed and scheduled for rollout a few days later.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>A bridging connection during a migration is meant to be a temporary safety rope between old and new equipment, except sometimes that rope turns out to be load bearing in ways nobody documented. Cutting a rope you thought was decorative is a rough way to discover it was holding something up.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Before retiring old equipment, it is worth mapping out every single thing that is quietly still leaning on it, not just the things it was originally there to do. Temporary infrastructure has a well earned reputation for outliving its intended lifespan.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

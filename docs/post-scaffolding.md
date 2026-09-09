@@ -9,9 +9,9 @@ repo-local documentation for how future posts get added.
 - `docs/post-template.html` is the reusable scaffold: title, date, tags,
   and four fixed sections (What Happened, The Fix, Jargon Decoded, Lessons
   (Not) Learned) with `{{ placeholder }}` fields to fill in.
-- `posts/2026-08-30-hello-oncall.html` is the first real entry, built from
-  that template. Content is marked `[DRAFT]` where it's a stand-in for
-  Chris's own writing rather than final copy.
+- `posts/NN-short-title.html` are the published entries, built from that
+  template. The `NN-` prefix numbers them from the oldest incident to the
+  newest.
 - `posts/index.html` lists published posts; new entries get added here as
   they're written.
 - `docs/README.md` documents the steps for adding a new post (copy

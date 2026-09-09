@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>When Both Feeds Lean on the Same Crutch — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>When Both Feeds Lean on the Same Crutch</h1>
+      <p class="post-meta">August 2023 - tags: broadcast, redundancy</p>
+
+      <p class="post-lede">
+        A backup design meant to protect two independent live feeds turned out to secretly depend on the same single point of failure for both of them.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>Several live sporting events lost picture entirely or partially, with real gaps missing from the recorded archives. The system had two redundant feeds, commonly called an A feed and a B feed, both meant to travel independently, but a single facility's scheduled maintenance took down the A path to both destination data centers at once. Both sites then kept trying to reconnect to the missing A feed through the same shared recovery path, which ended up flooding and degrading the B feed too.</p>
+
+      <h2>The Fix</h2>
+      <p>Feeds stabilized about an hour and twenty minutes after mitigation began, and a permanent redesign followed that sent the A feed and B feed to entirely separate destinations instead of both relying on the same originating facility's redundancy.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>An A feed and B feed setup is meant to be like having two independent copies of the same delivery truck taking different routes to the same destination. If both trucks are secretly parked in the same garage overnight, one bad night at that garage takes out both of them.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>True redundancy means checking the entire path end to end for shared dependencies, not just confirming there are technically two of something. Sometimes the backup plan needs its own backup plan, reviewed with the same scrutiny as the primary.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

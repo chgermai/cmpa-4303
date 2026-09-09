@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Tools That Cried Wolf — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Tools That Cried Wolf</h1>
+      <p class="post-meta">March 2026 - tags: bgp, firmware</p>
+
+      <p class="post-lede">
+        A quiet firmware bug took down a legacy router, and half our toolchain took it personally.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>A router in an old, aging data center dropped its BGP sessions to the cloud without warning. No alarms in the system logs, nothing dramatic, it just quietly stopped talking to its neighbors. Because that router happened to be the one path a handful of legacy tools used to reach the cloud, several unrelated systems fell over at once, including the tool that handles code deployments, because that tool in turn depends on an outside login service that also happened to route through the same tired old router. One broken link, and suddenly three different teams were paging in at the same time convinced they each had their own unique problem.</p>
+
+      <h2>The Fix</h2>
+      <p>The monitoring caught the BGP session drop fast, which was the one thing that went right. Finding out why it dropped took a deep dive with the router vendor, since nothing in the logs pointed at a cause. Eventually the vendor confirmed it was a known bug in an old version of the router's firmware, fixed in a newer release the team had simply never gotten around to installing on that particular box, because that whole environment was already on a one way trip to retirement.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>BGP is the protocol routers use to tell each other which paths lead where. When two routers "peer" and that peering silently drops, it is like two coworkers who used to update each other constantly just stopping mid conversation, with nobody in the room noticing until the mail stops arriving.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Nothing ages gracefully, especially firmware on a system everyone has already mentally decommissioned. The real lesson was less about the bug and more about how many important things were quietly leaning on one old, forgotten router the whole time.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

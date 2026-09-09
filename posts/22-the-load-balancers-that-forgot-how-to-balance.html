@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Load Balancers That Forgot How to Balance — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Load Balancers That Forgot How to Balance</h1>
+      <p class="post-meta">August 2025 - tags: load-balancer, vendor-bug</p>
+
+      <p class="post-lede">
+        The machines whose entire job is staying calm and distributing load instead crashed repeatedly for over a week.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>The service engines that sit in front of applications and spread traffic evenly across servers started crashing on a repeating basis over about a week. It was isolated to one newly created group of these engines, which had somehow missed a standard safeguard that the rest of the fleet already had in place.</p>
+
+      <h2>The Fix</h2>
+      <p>The vendor's support team traced it to a known bug involving how much memory was reserved for internal debug and trace logging, of all things, the very feature meant to help you diagnose problems was the thing quietly causing them. Turning that setting down to the bare minimum stopped the crashes, and the group stayed stable for well over a day before the case was closed. A proper software upgrade was recommended as the real long term fix.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>A load balancer is the traffic cop of a data center, deciding which server handles which request so no single machine gets overwhelmed. When the traffic cop itself keeps having a breakdown, everyone downstream feels it immediately.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>New infrastructure groups do not automatically inherit every lesson learned by the older ones, someone has to go check. Also, the tool built to help you debug problems can, on a bad day, become the problem.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

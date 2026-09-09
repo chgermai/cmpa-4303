@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Change That Was Not Supposed to Happen — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Change That Was Not Supposed to Happen</h1>
+      <p class="post-meta">March 2023 - tags: routing, change-management</p>
+
+      <p class="post-lede">
+        While fixing one small, unrelated issue, someone made an edit that was never supposed to touch production, and production noticed fast.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>During a larger, planned migration of cloud networking, an engineer troubleshooting a separate and unrelated issue made a routing configuration edit outside the normal change process. The edit caused a more specific route to leak out from an older legacy environment, breaking connectivity for a publishing platform used by one of the video services.</p>
+
+      <h2>The Fix</h2>
+      <p>The change was identified and reverted quickly, and the bad route disappeared from the network within about twenty minutes of the ticket being opened.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>In routing, a more specific route beats a general one every time, the same way a street address always wins over a zip code when a letter carrier is deciding where to drop your mail. One tiny, oddly specific route can quietly hijack traffic that used to flow somewhere else entirely.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>I was just fixing something else real quick is the sentence that precedes more outages than almost any other. The fix here was not just technical, it was a full rework of how in flight troubleshooting changes get approved before they touch anything live.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

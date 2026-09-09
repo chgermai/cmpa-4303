@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Limit Nobody Remembered Was There — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Limit Nobody Remembered Was There</h1>
+      <p class="post-meta">April 2022 - tags: bgp, max-prefix</p>
+
+      <p class="post-lede">
+        Adding one new office network to the routing table was all it took to quietly exceed a limit set years earlier and drop every session on two routers at once.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>Two core routers stopped talking to their upstream neighbors entirely after a small, seemingly unrelated change to allow a new office's network to be advertised across the network. The routers had a maximum number of routes they would accept configured from long before, and the new network pushed the total just over that ceiling, which caused the sessions to be torn down automatically.</p>
+
+      <h2>The Fix</h2>
+      <p>An emergency change raised the maximum allowed routes by a wide margin, and every dropped session recovered within about five minutes.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>A max routes setting is a safety net meant to stop a router from being overwhelmed by an unexpectedly huge routing table, but safety nets set once and never revisited eventually become tripwires instead. As a bonus fix, the team also changed the router's behavior so hitting that limit in the future would just log a warning instead of immediately dropping the connection.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>A safety limit is only useful if someone occasionally checks whether the network has grown past what it was built for. Turning shut everything down into just let us know as the default reaction to hitting a limit is usually the better trade.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

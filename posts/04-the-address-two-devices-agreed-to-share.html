@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Address Two Devices Agreed to Share — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Address Two Devices Agreed to Share</h1>
+      <p class="post-meta">May 2019 - tags: addressing, data-center</p>
+
+      <p class="post-lede">
+        An entire data center went unreachable because some new switches were handed addresses that already belonged to the devices in charge of getting traffic in and out.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>An entire facility became unreachable across the network. New top of rack switches had been brought online using addresses that were identical to the addresses already used by the facility's main gateway devices, so traffic meant for the gateway got sent to the wrong place entirely and quietly dropped.</p>
+
+      <h2>The Fix</h2>
+      <p>The conflicting links were shut down and the switches were reassigned different addresses, restoring connectivity in about four minutes flat.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>Gateway devices are the front door of a data center, the one path everything uses to get in or out. Handing that same street address to a completely different building is a fast way to make sure nobody's mail arrives anywhere useful.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Fast resolutions like this one are the reward for a genuinely simple root cause, but the same lesson from the earlier switch address story applies here too, check before you assign, every single time.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

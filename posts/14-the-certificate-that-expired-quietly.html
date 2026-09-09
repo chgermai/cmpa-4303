@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Certificate That Expired Quietly — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Certificate That Expired Quietly</h1>
+      <p class="post-meta">April 2022 - tags: tls, video</p>
+
+      <p class="post-lede">
+        An entire platform for on demand video stopped starting playback for everyone, because a security certificate simply ran out the clock.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>Video playback failed to start across an entire on demand video platform. The cause was refreshingly low tech for a network heavy team to be chasing, a security certificate used by the platform had simply expired.</p>
+
+      <h2>The Fix</h2>
+      <p>A new certificate was issued and uploaded to the relevant regions, with playback returning to normal a couple of hours after the initial spike in errors.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>An SSL certificate is basically an ID card a website shows your browser to prove it is who it says it is, and like any ID card, it has an expiration date printed on it. When that date passes, everyone at the door gets turned away regardless of how legitimate they actually are.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Tracking systems for certificate expiration are only useful if everyone trusts them, and this one had a habit of both false alarms and missed real expirations, which is the worst possible combination because it teaches people to ignore it. An unglamorous audit of every expiration tracking tool in use turned out to be more valuable than any amount of network troubleshooting.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

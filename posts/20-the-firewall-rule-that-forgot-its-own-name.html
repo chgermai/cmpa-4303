@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Firewall Rule That Forgot Its Own Name — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Firewall Rule That Forgot Its Own Name</h1>
+      <p class="post-meta">October 2023 - tags: dns, firewall</p>
+
+      <p class="post-lede">
+        Renaming a label on a firewall rule quietly broke DNS for an entire site, because the rename did not take the way everyone assumed it had.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>An entire site's virtual hosts appeared to go offline, with hostnames refusing to resolve. The actual cause was much smaller than the symptom, a firewall rule responsible for allowing DNS traffic out to the resolvers referenced a tag that had just been renamed, and the rename did not register correctly, so the rule silently stopped matching anything.</p>
+
+      <h2>The Fix</h2>
+      <p>Renaming the tag back partially helped, some systems recovered and others did not, so the team ultimately added a brand new, explicit rule allowing that DNS traffic through, which cleared the problem completely about half an hour after it started.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>DNS is the system that turns a friendly name like a website address into the numeric address computers actually use to find each other. When DNS traffic gets silently blocked, computers are not down, they are just unable to find each other anymore, like everyone's address book got wiped at the same time.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>A rename should be one of the most boring, low risk operations there is, and when it is not, that is worth reporting straight back to whoever built the tool. Silent failures are always worse than loud ones, because nothing tells you where to look first.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

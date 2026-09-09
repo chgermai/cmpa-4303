@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Two New Neighbors, Same Address — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Two New Neighbors, Same Address</h1>
+      <p class="post-meta">January 2022 - tags: addressing, broadcast</p>
+
+      <p class="post-lede">
+        Two newly deployed switches were handed the exact same internal address as two switches that already existed, and everyone found out the hard way.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>Signal was lost across an entire set of broadcast feeds out of one facility, right in the middle of live sporting events. Two newly deployed leaf switches had been assigned an internal loopback address that was already in use by other switches already on the network.</p>
+
+      <h2>The Fix</h2>
+      <p>The conflicting uplinks were shut down and the new switches were reassigned different addresses, which cleared the issue.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>A loopback address is like a switch's internal name tag, used for management and internal routing purposes even though it never actually touches your data directly. Two devices wearing the same name tag on the same network will absolutely cause an identity crisis for everything trying to talk to either one.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>A simple check to confirm an address is not already in use before assigning it to new hardware takes seconds and would have prevented this outright. It became a standing process step afterward, for exactly that reason.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

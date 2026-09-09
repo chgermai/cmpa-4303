@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Two Cables, One Maintenance Window — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Two Cables, One Maintenance Window</h1>
+      <p class="post-meta">May 2017 - tags: maintenance, redundancy</p>
+
+      <p class="post-lede">
+        A provider scheduled maintenance on both of a location's supposedly redundant circuits at the same time, which rather defeats the purpose of having two.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>A facility lost nearly all of its outbound network paths for several hours because most of its traffic routes were normally advertised from a different site, and the connections between the two happened to be the two circuits the provider had chosen to service simultaneously.</p>
+
+      <h2>The Fix</h2>
+      <p>There was nothing to actively fix, the outage resolved itself once the maintenance window ended and both circuits came back online.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>Redundant circuits are supposed to behave like two separate staircases in a building, if one is blocked you take the other. If a well meaning maintenance crew closes both staircases at once for cleaning, it does not matter how redundant the design was on paper.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Redundancy is a promise made by design, but it has to be enforced operationally too, someone has to actually watch for two maintenance windows landing on the same night. A manual backup path was documented afterward specifically in case this exact scenario ever happened again.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

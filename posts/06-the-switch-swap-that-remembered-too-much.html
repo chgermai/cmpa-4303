@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Switch Swap That Remembered Too Much — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Switch Swap That Remembered Too Much</h1>
+      <p class="post-meta">April 2020 - tags: switching, config-management</p>
+
+      <p class="post-lede">
+        A brand new replacement switch was handed a configuration from its own memory that nobody wanted it to remember.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>Object storage supporting content delivery lost network connectivity during what was meant to be a routine hardware swap. The replacement switch, brought in to fix a memory fault on the original, auto loaded a leftover configuration during setup that was stale and incompatible with its new role, breaking the switch pairing it needed to function correctly.</p>
+
+      <h2>The Fix</h2>
+      <p>The networking team took over the configuration process directly, restored the correct ports, and shifted traffic to unaffected sites while storage access was confirmed clean, restoring everything within about an hour and a half.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>Auto configuration on new hardware is meant to save time by loading a known good starting point, but known good only means something if it actually matches the situation you are dropping it into. A stale template applied automatically is a bit like moving into a new apartment and having the furniture from your old one magically already installed in all the wrong rooms.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Standard procedures for routine tasks need updating the moment they cause a problem once, not after they cause it twice. The process for swapping hardware was rewritten afterward to require a clean, verified starting configuration before a replacement switch is ever connected to the live network.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Day the Internet Forgot Who We Were — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Day the Internet Forgot Who We Were</h1>
+      <p class="post-meta">February 2022 - tags: bgp, asymmetric-routing</p>
+
+      <p class="post-lede">
+        One fiber cut caused a failover that worked exactly as designed, and then a second problem, caused by the fix for the first one, took out a completely different region.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>A fiber cut in one region took down a primary connection to cloud infrastructure. The automatic failover that was supposed to smoothly reroute traffic did not behave as expected, and traffic ended up flowing asymmetrically, going out one path and expecting to come back a different way, which security devices along the way simply refuse to allow. Forcing everything through a single healthy path fixed that problem but caused a second, different one somewhere else, because two other regions were missing route announcements they needed to handle the new traffic pattern correctly.</p>
+
+      <h2>The Fix</h2>
+      <p>The emergency routing change was reverted once the physical fiber was repaired, and the missing route announcements were identified and added the following day.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>Asymmetric routing is when data leaves your network by one road but tries to come home by a completely different one. Security systems tend to treat that like a stranger walking in through a window instead of the front door, and they slam it shut on principle.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Fixing problem one occasionally hands you problem two wearing a trench coat, so any emergency reroute deserves a second look at everything it touches, not just the original symptom. There is also real long term value in removing a temporary workaround entirely rather than living with it indefinitely.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

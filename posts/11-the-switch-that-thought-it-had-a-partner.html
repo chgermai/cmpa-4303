@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Switch That Thought It Had a Partner — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Switch That Thought It Had a Partner</h1>
+      <p class="post-meta">January 2022 - tags: switching, virtual-networks</p>
+
+      <p class="post-lede">
+        Two brand new switches were configured to work as a pair, except neither one actually had a partner, and the network layer that depends on that pairing quietly broke.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>During planned maintenance, new hosts placed on a particular virtual network segment could reach each other locally but nothing outside of it. Two leaf switches involved had a switch pairing feature enabled despite having no actual paired partner switch, which left an internal control interface down and broke the tunneling that made the virtual network work at all.</p>
+
+      <h2>The Fix</h2>
+      <p>Removing the leftover pairing configuration and bringing the control interface back up restored full connectivity.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>Certain switch features assume you are always working in pairs, like a three legged race that assumes there are exactly two people tied together. Enable that feature solo and you just end up hopping in place, technically running, but going nowhere useful.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Before adding a new feature to a switch, it is worth double checking that switch is actually configured the way that feature expects. A quick pairing sanity check before go live would have caught this in minutes instead of after new hosts were already depending on it.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

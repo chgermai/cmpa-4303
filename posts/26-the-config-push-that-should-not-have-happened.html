@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Config Push That Should Not Have Happened — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Config Push That Should Not Have Happened</h1>
+      <p class="post-meta">August 2026 - tags: automation, change-management</p>
+
+      <p class="post-lede">
+        Someone adding new devices to an automation tool accidentally aimed a live configuration push at production, and production noticed immediately.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>Most of the network neighbors at one site flapped down and back up within about half an hour. The cause was a configuration automation tool being used to add new devices, except the push meant for the new devices went out to the live network instead.</p>
+
+      <h2>The Fix</h2>
+      <p>The push was rolled back and the credentials that had allowed it to reach production in the first place were removed, closing that particular door for next time.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>Flapping is when a connection between two devices repeatedly drops and reconnects instead of settling into one stable state, like a light switch someone cannot stop flicking. Automation tools are meant to make changes safer and faster, right up until they make a mistake faster too.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Automation is only as safe as the boundary between test and everything, and that boundary needs to be a wall, not a suggestion. A five minute credential scoping review is a lot cheaper than a thirty minute companywide flap.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

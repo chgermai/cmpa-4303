@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Multicast That Forgot to Say Please — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Multicast That Forgot to Say Please</h1>
+      <p class="post-meta">July 2020 - tags: multicast, migration</p>
+
+      <p class="post-lede">
+        A migration went smoothly right up until the new equipment tried to join a group conversation nobody had actually invited it to.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>A set of broadcast receiving devices lost their multicast subscriptions after being moved to new network hardware as part of a planned migration. The devices that were supposed to answer their join requests never got the message, because a required setting enabling multicast routing had not been applied to one specific network interface.</p>
+
+      <h2>The Fix</h2>
+      <p>Applying the missing setting and testing with a device joining from multiple locations confirmed everything worked, and the moved devices stayed on their new hardware without needing to roll anything back.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>Multicast is a way for one source to send a single stream that many recipients can subscribe to at once, rather than sending a separate copy to everyone individually. If the join request system silently ignores your request, you just never get invited to the stream, no error message, no explanation, just silence.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Migrations built around moving physical hardware need just as much scrutiny for the invisible plumbing, like routing protocols, as they get for the visible cabling. An open item was left with the hardware vendor to make sure nothing else about the migration path was hiding a similar surprise.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

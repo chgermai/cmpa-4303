@@ -3,7 +3,8 @@
 `post-template.html` is the template for every new entry on Views From the On-Call Chair. To write a new post:
 
 1. Copy `docs/post-template.html` into `posts/`, named
-   `YYYY-MM-DD-short-title.html` (e.g. `2026-09-06-the-great-dns-caper.html`).
+   `NN-short-title.html`, continuing the numbering already in `posts/`
+   (e.g. `21-the-clock-that-needed-a-very-specific-path.html`).
 2. Fill in the `{{ placeholders }}`.
 3. Add a link to the new post in `posts/index.html`.
 4. Commit and push — GitHub Pages picks it up automatically.

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Tool That Cleaned Up a Little Too Well — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Tool That Cleaned Up a Little Too Well</h1>
+      <p class="post-meta">January 2021 - tags: config-management, monitoring</p>
+
+      <p class="post-lede">
+        A routine sync of switch configurations wiped out settings nobody had told the syncing tool about in the first place.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>Monitoring for an entire site went dark, with virtualization hosts falsely appearing offline. While resolving an unrelated sync issue on other switches, a resync operation on the management platform erased interface configurations that had been applied directly through the command line rather than through the platform's own templates.</p>
+
+      <h2>The Fix</h2>
+      <p>The lost interface configurations were restored from a separate network backup system, and monitoring came back once they were reapplied.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>A configuration management platform is meant to be the single source of truth for how devices are set up, but it can only protect settings it actually knows about. Anything configured outside that system is invisible to it, right up until the system helpfully overwrites it during a routine sync.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>If a tool is supposed to manage a device, every change to that device needs to go through the tool, no side doors. The fix here was updating the standard templates so future changes would not need an unmanaged workaround in the first place.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

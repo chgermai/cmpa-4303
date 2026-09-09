@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Limit a Vendor Forgot to Mention — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Limit a Vendor Forgot to Mention</h1>
+      <p class="post-meta">April 2017 - tags: bgp, redundancy</p>
+
+      <p class="post-lede">
+        An internet provider quietly imposed a limit on how many routes it would accept from us, never told anyone, and then enforced it without warning.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>A mobile sports app lost all connectivity from one office because its one path to a public service endpoint went through a network session that got torn down. The provider on the other end had imposed an undocumented limit on the number of routes it would accept, and normal route growth eventually crossed that invisible line.</p>
+
+      <h2>The Fix</h2>
+      <p>The provider agreed to raise the limit substantially once the issue was identified, and a second, independent internet path was added afterward so the same office would not depend on a single provider relationship again.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>A route limit set by a provider that nobody on your side knows about is the networking equivalent of a landlord having an unwritten guest policy and only enforcing it the one night you have a party. It is technically their building, but it would have been nice to know beforehand.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Assumptions about capacity should never rest entirely on a promise from someone else's system, especially an undocumented one you cannot see or monitor yourself. Redundancy across providers, not just across cables, turned out to be the real fix.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The VPN That Picked a Fight With Itself — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The VPN That Picked a Fight With Itself</h1>
+      <p class="post-meta">February 2023 - tags: vpn, remote-access</p>
+
+      <p class="post-lede">
+        Remote access ground to a halt for an entire region, and it took two unrelated bugs colliding to do it.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>Remote workers across an entire region found their VPN connections slow to the point of unusable, for the better part of a day. It turned out to be two separate problems happening at once, a bug in the security inspection software causing packet loss, and a set of policy servers in one location quietly failing in a way that broke the security posture checks every VPN client has to pass before connecting.</p>
+
+      <h2>The Fix</h2>
+      <p>Engineers worked through firewall reboots and a rollback of one inspection engine version, plus a very thorough review of the VPN configuration with the vendor's support engaged directly. The fix that actually stuck was routing around the misbehaving policy servers entirely and relying only on the healthy ones in a different location.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>A posture check is the VPN asking your laptop a quick set of questions before letting it in, is your antivirus running, is your disk encrypted, that sort of thing. When the servers answering those questions get sick themselves, the whole front door effectively locks.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Two independent small problems can combine into one large mystery, and untangling which bug is doing what takes real patience. Sometimes the fastest fix is not repairing the broken piece but simply not using it for a while.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

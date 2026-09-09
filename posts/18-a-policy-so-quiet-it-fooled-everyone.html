@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A Policy So Quiet It Fooled Everyone — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>A Policy So Quiet It Fooled Everyone</h1>
+      <p class="post-meta">June 2023 - tags: bgp, route-redistribution</p>
+
+      <p class="post-lede">
+        A routine policy change silently stopped advertising a data center's own address space to the internet, and the immediate post change check somehow looked fine anyway.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>Internet and cloud connectivity for an entire data center dropped, spiking error rates across multiple streaming platforms at once. The cause was a routing policy change applied to align two routers with a new internal standard, except a conflict in how static routes were being redistributed meant the site quietly stopped telling the outside world it existed.</p>
+
+      <h2>The Fix</h2>
+      <p>The change looked fine at first glance right after it was applied, the real effect only became visible several minutes later. Once identified, both routers were reverted to their previous configuration and recovery followed within about ten minutes.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>Redistribution is when a router takes routes it learned one way and reannounces them using a different method, sort of like translating a message and passing it along. If the translation quietly drops a sentence, the recipient never even knows they are missing information.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>A check performed immediately after a change is only as good as how quickly the change's real effects show up, and some effects take their time. This one also got reclassified afterward to a higher risk category, which is a nice way of saying we should have been more careful with this from the start.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Too Many Routes, Not Enough Limit — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Too Many Routes, Not Enough Limit</h1>
+      <p class="post-meta">August 2026 - tags: bgp, peering</p>
+
+      <p class="post-lede">
+        A network session dropped simply because it was told it could not possibly be receiving that many routes, even though it was.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>A network peering session with an internet exchange point went down. The cause turned out to be embarrassingly simple, our side had a low limit configured for how many routes it would accept from that neighbor, and the real number of routes being sent just quietly exceeded it.</p>
+
+      <h2>The Fix</h2>
+      <p>Raising the configured limit let both sessions come back up right away, and traffic was confirmed flowing normally again shortly after.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>Think of a prefix limit as a mailbox that only holds so many letters before it refuses new ones and shuts the slot entirely. If your neighborhood grows and nobody upgrades the mailbox, the mail carrier eventually just gives up and turns around.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Limits that made sense on day one do not always age well as networks grow. A quick check of whether we ever revisited this number would have saved a very avoidable outage.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Clock That Needed a Very Specific Path — Views From the On-Call Chair</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Posts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>The Clock That Needed a Very Specific Path</h1>
+      <p class="post-meta">January 2024 - tags: timing, ptp</p>
+
+      <p class="post-lede">
+        A network cleanup removed some links that looked redundant and unnecessary on paper, except one very picky protocol needed them specifically.
+      </p>
+
+      <h2>What Happened</h2>
+      <p>Playback issues appeared across live streaming platforms after a scheduled network cleanup removed some internal links believed to be redundant. Those particular links turned out to be required for a precision timing protocol that keeps devices synchronized to the same clock, and the remaining hardware paths were not capable of carrying that timing traffic the same way.</p>
+
+      <h2>The Fix</h2>
+      <p>The change was reverted within about an hour of the first timing alerts, and alerts cleared shortly after.</p>
+
+      <h2>Jargon, Decoded</h2>
+      <p>A precision timing protocol keeps every device on a network agreeing on the exact same instant in time, down to fractions of a second, which sounds unnecessary until you realize how many systems quietly depend on everyone's clocks matching. Removing extra links without checking what depends on them is a bit like removing what looks like a spare bookshelf, only to discover it was the one thing holding the ceiling up in that corner.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Some traffic has very specific requirements that are not obvious just from looking at a network diagram. The redesign that followed made sure enough dedicated paths were preserved specifically for timing traffic before anything else got cleaned up again.</p>
+
+      <p><a href="./index.html">&larr; Back to all posts</a></p>
+    </main>
+  </body>
+</html>
