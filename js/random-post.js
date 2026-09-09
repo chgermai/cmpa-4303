@@ -17,7 +17,7 @@
         "text/html",
       );
       const links = Array.from(
-        doc.querySelectorAll(".post-list a[href]"),
+        doc.querySelectorAll(".post-list a.post-card-link[href]"),
       ).map((a) => a.getAttribute("href"));
       if (links.length === 0) throw new Error("No posts found");
       const pick = links[Math.floor(Math.random() * links.length)];

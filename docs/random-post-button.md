@@ -16,9 +16,9 @@ navigates to it.
   `<script src="js/random-post.js" defer>`. It's wrapped in an IIFE and
   no-ops when `#random-post` is absent, so it's safe to load on any page.
 - On click, the script `fetch()`es `posts/index.html`, parses it with
-  `DOMParser`, and collects the `href`s of `.post-list a` — the same list
-  humans see on the Posts page. This keeps the feature in sync as new posts
-  are added; there is no second list to maintain.
+  `DOMParser`, and collects the `href`s of `.post-list a.post-card-link` —
+  the same post cards humans see on the Posts page. This keeps the feature in
+  sync as new posts are added; there is no second list to maintain.
 - One entry is chosen at random and the browser navigates to
   `posts/<file>`.
 - On failure (list won't load, no posts) the button re-enables and shows a
