@@ -1,9 +1,11 @@
 :root {
-  --color-bg: #fafafa;
-  --color-text: #222;
-  --color-muted: #666;
-  --color-accent: #222;
-  --color-accent-contrast: #fafafa;
+  --color-bg: #0b2027;
+  --color-surface: #123039;
+  --color-text: #eaf6f6;
+  --color-muted: #8fb8bd;
+  --color-accent: #ff8c42;
+  --color-accent-contrast: #1a0c00;
+  --color-border: #1d4954;
 
   --space-1: 0.5rem;
   --space-2: 1rem;
@@ -64,6 +66,11 @@ header,
 main,
 footer {
   padding-block: var(--space-3);
+}
+
+header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
 }
 
 nav ul {
@@ -161,7 +168,7 @@ nav a:hover {
   display: flex;
   justify-content: space-between;
   gap: var(--space-2);
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--color-border);
   padding-bottom: var(--space-1);
 }
 
