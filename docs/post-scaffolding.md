@@ -22,8 +22,11 @@ does not claim it as their own writing.
 - `posts/NN-short-title.html` are the published entries, built from that
   template. The `NN-` prefix numbers them from the oldest incident to the
   newest.
-- `posts/index.html` lists published posts; new entries get added here as
-  they're written.
+- `posts/index.html` lists published posts as cards (`.post-card`), one per
+  post, showing the title, date, and the post's lede as a short description.
+  Each card is a single link. `js/random-post.js` reads these cards
+  (`.post-list a.post-card-link`) so the random-post button stays in sync;
+  new entries just get another `<li class="post-card">` added here.
 - `docs/README.md` documents the steps for adding a new post (copy
   template, fill in placeholders, link from the index).
 
@@ -32,5 +35,14 @@ does not claim it as their own writing.
 - Added a `<header><nav>` block to `index.html` linking Home and Posts.
 - Post pages reuse the same nav, pointing back to `../index.html`.
 - New CSS classes (`nav a`, `.post-meta`, `.post-lede`, `.post-list`,
-  `.post-list-date`) extend the existing design tokens in `css/style.css`
+  `.post-card*`) extend the existing design tokens in `css/style.css`
   rather than introducing new colors/spacing values.
+
+## Site background
+
+- `body` in `css/style.css` has a default background: `img/hero-fiber-lights.jpg`
+  under a dark translucent gradient (built from `--color-bg`) so body text
+  stays readable, `background-size: cover`, fixed attachment. It falls back to
+  the solid `--color-bg` color if the image fails to load.
+- On `posts/index.html` the cards sit on their own opaque `--color-surface`
+  fill with a shadow, so the card text never has to compete with the photo.
