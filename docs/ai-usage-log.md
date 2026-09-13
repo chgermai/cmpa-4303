@@ -9,11 +9,13 @@ entry, and existing entries don't get rewritten after the fact.
 
 ## How this log was assembled
 
-- Every entry from 2026-09-08 onward is a firsthand account written from the
-  actual conversation transcript with Claude Code, by the same AI that did
-  the work, in the same session (or a later session with that transcript
-  still available). Requests are paraphrased faithfully; anything in
-  quotation marks is the owner's own words.
+- The 2026-09-08 entry is written directly by the AI that did the work, in
+  the same conversation, not recalled or paraphrased from memory
+  afterward. Partway through, the owner also pasted in the full raw
+  session transcript so the entry's quotes could be checked against it
+  and made exact — see item 12 in that entry for why that transcript
+  itself isn't kept in the repo. The prompts quoted in quotation marks
+  were verified word-for-word against that transcript at the time.
 - Entries before 2026-09-08 predate this log. No saved transcript exists for
   that earlier work, so those entries are reconstructed from two sources
   only: the git commit history, and the per-feature notes already checked
@@ -60,69 +62,106 @@ random entry. Also moved `style.css` to `css/style.css` and added
 `docs/feature-doc-template.md` as the template these per-feature notes
 follow.
 
-### 2026-09-08 through 2026-09-13 — this session
+### 2026-09-08 through 2026-09-13 — blog posts and site styling
 
 Commits: `dedb162`, `92d238d`, `f8781e8`, `11bda49`, `b6aa0ee`, plus
 uncommitted work as of this entry.
 
-This is a firsthand record: the conversation happened directly with the AI
-writing this log.
+Items 1–10 below are not a recreated summary — they were written in this
+same conversation as the work happened, and every quoted prompt was later
+checked word-for-word against a full raw transcript the owner pasted in
+(see items 11–12). That transcript file is not kept in this repo; this log
+entry is the durable record instead.
 
-1. **Ignore the drafts folder.** Asked to add `drafts/` (27 markdown
-   incident write-ups) to `.gitignore` so it wouldn't be tracked. Done;
-   landed in the next commit below.
-2. **Generate posts from the drafts.** Asked to "use the markdown drafts in
-   the drafts folder to generate posts using the template in docs," keeping
-   the drafts' `NN-slug` naming convention, then delete the placeholder
-   `hello-oncall` post. The AI read all 27 drafts — each a genericized,
+1. **Ignore the drafts folder.** Prompt: *"Add the drafts folder (and all
+   contents) to the git ignore file"*. Added `drafts/` (27 markdown
+   incident write-ups) to `.gitignore`. Landed in the next commit below.
+2. **Generate posts from the drafts.** Prompt: *"Use the markdown drafts in
+   the drafts folder to generate posts using the template in docs. Keep
+   that naming convention used for the files. Once done let's delete the
+   hello oncall post."* The AI read all 27 drafts — each a genericized,
    real network/DNS incident the site owner had lived through and supplied
-   as source material — asked clarifying questions about file naming, post
-   dates, and tags, then generated all 27 `posts/NN-slug.html` files from
-   `docs/post-template.html`, rebuilt `posts/index.html`, and deleted
+   as source material — asked clarifying questions (via `AskUserQuestion`)
+   about file naming, post dates, and tags, then wrote and ran a Python
+   script (`gen_posts.py`) to generate all 27 `posts/NN-slug.html` files
+   from `docs/post-template.html`, wrote a second script (`gen_index.py`)
+   to rebuild `posts/index.html`, and ran `git rm` on
    `posts/2026-08-30-hello-oncall.html`. → commit `dedb162`.
-3. **Stop referencing the drafts folder in docs.** Docs that pointed at
-   `drafts/incident-posts/` were edited to drop that reference, since the
-   folder is gitignored and not meant to be a repo-visible source. Folded
+3. **Stop referencing the drafts folder in docs.** Prompt: *"Dont reference
+   the drafts folder in the docs"*. Edited `docs/README.md` and
+   `docs/post-scaffolding.md` to drop the `drafts/incident-posts/`
+   reference, since the folder is gitignored and not meant to be a
+   repo-visible source. Verified with `grep -rn -i "draft" docs/`. Folded
    into the same commit.
-4. **Color palette.** Given a specific set of seven CSS custom-property
-   values (dark teal background, orange accent, etc.) and asked to apply
-   them as the site's base colors. The AI updated the `:root` tokens in
-   `css/style.css` and wired the two new tokens (`--color-surface`,
-   `--color-border`) into existing rules so neither went unused. → commit
-   `92d238d`.
-5. **Authorship disclosure.** Asked to document, in the repo, that the 27
-   posts were AI-written from real source data the owner provided and
-   reviewed — not the owner's own writing, and the owner didn't want credit
-   for prose they didn't write. Added an "Authorship" section to
-   `docs/README.md` and `docs/post-scaffolding.md` explaining this. →
-   commit `f8781e8`.
-6. **Cards instead of a list.** Asked to turn `posts/index.html` into a
-   card layout — title, date, and a short description per post — and to
-   update the random-post JS if needed. The AI rebuilt the page as
-   `.post-card` items (title, date, and the post's lede as the
-   description), added the card CSS, and narrowed the `random-post.js`
-   selector to match. → commit `11bda49`.
-7. **Hero background image.** Asked to use `img/hero-fiber-lights.jpg` as a
-   site-wide default background, with each post card kept on its own solid,
-   readable background. Added the image with a dark gradient overlay on
-   `body` in `css/style.css`, kept `.post-card` opaque with a shadow, and
-   fixed a low-contrast link color the new background exposed. → commit
+4. **Color palette.** Prompt: *"Update the base style with these colors:"*
+   followed by a `:root` block of seven CSS custom-property values (dark
+   teal background, orange accent, etc.). The AI applied them as the
+   site's `:root` tokens in `css/style.css` and wired the two new ones
+   (`--color-surface`, `--color-border`) into existing rules so neither
+   went unused. → commit `92d238d`.
+5. **Authorship disclosure.** Prompt: *"We should update the docs for the
+   site to note that the post were written by AI based on source data I
+   provided. I don't want to take credit for something I did not actually
+   write."* Added an "Authorship" section to `docs/README.md` and
+   `docs/post-scaffolding.md`. Asked afterward whether a visible on-site
+   disclosure was also wanted; owner replied *"No, I just want the repo to
+   reflect this"*, so no site-facing change was made. → commit `f8781e8`.
+6. **Cards instead of a list.** Prompt: *"I want to modify the
+   posts/index.html page so each blog appears as a card with the title,
+   date, and the short description of the incident display. Also, may
+   need to update the JS function so it still chooses a random post."*
+   The AI wrote `gen_index.py` to rebuild the page as `.post-card` items
+   (title, date, and the post's lede as the description), added the card
+   CSS, and narrowed the `random-post.js` selector to
+   `.post-list a.post-card-link[href]` to match. → commit `11bda49`.
+7. **Hero background image.** Prompt: *"lets add a default background image
+   using the img/hero-fiber-lights.jpg file. For the posts/index.html page
+   each card should have its own solid background so the text is easy to
+   read."* Added the image with a dark gradient overlay on `body` in
+   `css/style.css`, kept `.post-card` opaque with a shadow, and fixed a
+   low-contrast link color the new background exposed. Verified by
+   serving the site with `python3 -m http.server` and taking headless
+   Chrome screenshots, sent to the owner via `SendUserFile`. → commit
    `b6aa0ee`.
-8. **Recent posts on the homepage.** Asked to add a listing of the 5 most
-   recent posts to `index.html`, right after the status badge, reusing the
-   card classes built for the posts page. Added a "Recent Posts" section
-   with the same `.post-list` / `.post-card` markup and a link to the full
-   posts page; documented that this list is hand-maintained, not generated
-   like `posts/index.html`. → uncommitted as of this entry.
-9. **This log.** Asked to document this conversation in `docs/`, as far
-   back as it could be reconstructed, and to maintain it going forward in
-   case questions come up about how AI was used for this assignment. This
-   file is the result.
-10. **Remove the "Under Construction" badge.** Asked to "remove the
-    'Status: Under Construction' button and clean up the configuration."
+8. **Recent posts on the homepage.** Prompt: *"Let's modify the homepage.
+   After the badge class in the main section I want to add a listing of
+   the 5 most recent posts using the existing card classes built for the
+   posts page."* Added a "Recent Posts" section to `index.html` with the
+   same `.post-list` / `.post-card` markup and a link to the full posts
+   page; documented that this list is hand-maintained, not generated like
+   `posts/index.html`. Verified with a headless-Chrome screenshot. →
+   uncommitted as of this entry.
+9. **This log.** Prompt: *"Can we document the conversation in the docs
+   folder. We should document it as far back as we can and we will
+   maintain that docs in case any questions arise of how I used AI for
+   this assignment."* The AI pulled the full `git log` history (including
+   full commit messages and ISO timestamps) and the existing per-feature
+   docs to reconstruct entries for work before this session, then wrote
+   this file. First version was self-labeled as a mix of firsthand account
+   and reconstruction.
+10. **Remove the "Under Construction" badge.** Prompt: *"Let remove the
+    "Status: Under Contruction" button and clean up the configuration."*
     Removed the `<p class="badge">` line from `index.html` and deleted the
-    now-unused `.badge` rule from `css/style.css` (checked first that
-    nothing else referenced it). → uncommitted as of this entry.
+    now-unused `.badge` rule from `css/style.css`, after confirming with
+    `grep` that nothing else referenced either. → uncommitted as of this
+    entry.
+11. **Attach the real transcript.** The owner exported and pasted the raw
+    session transcript covering items 1–10 above, with the instruction:
+    *"This is a transcript from the claude code sessions. This should be
+    used to update the ai-usage data so it no longer reads as recreated."*
+    The AI saved that transcript verbatim to
+    `docs/transcripts/2026-09-08-blog-posts-and-site-styling.md` and
+    rewrote this entry to cite it directly and quote prompts exactly,
+    rather than describing the session from its own summary.
+12. **Remove the transcript file.** Prompt: *"I am not going to maintain
+    the transcript in the repo so we should remove that from the docs."*
+    Deleted `docs/transcripts/2026-09-08-blog-posts-and-site-styling.md`
+    (and the now-empty `docs/transcripts/` folder), and edited "How this
+    log was assembled" and the intro above item 1 to stop pointing at a
+    file that no longer exists. The quoted prompts and described actions
+    in items 1–10 are unchanged — they were checked against that
+    transcript before it was removed — this just stops treating the raw
+    file as something the repo keeps up to date.
 
 ## Maintaining this log
 
