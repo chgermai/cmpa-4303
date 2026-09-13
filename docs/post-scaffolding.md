@@ -29,6 +29,14 @@ does not claim it as their own writing.
   new entries just get another `<li class="post-card">` added here.
 - `docs/README.md` documents the steps for adding a new post (copy
   template, fill in placeholders, link from the index).
+- `index.html` has a "Recent Posts" section reusing the same `.post-list` /
+  `.post-card` markup (titles are `<h3>` there instead of `<h2>`, to sit
+  correctly under the page's own `<h2>Recent Posts</h2>`, but
+  `.post-card-title` sets its own font size so both look identical) to show
+  the 5 most recent posts, newest first, with a link to `posts/index.html`
+  underneath. Unlike `posts/index.html`, this list is hand copied, not
+  generated — when a new post is added, update this section manually if it
+  should displace one of the five.
 
 ## Files added for multi-page navigation
 

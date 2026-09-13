@@ -18,7 +18,8 @@ The existing posts were written by an AI assistant from source data the site
 owner provided (real incidents they experienced, then genericized). The owner
 supplied and reviewed the facts but did not write the prose and does not claim
 authorship of it. Note the same for any future post produced this way. See
-`post-scaffolding.md` for the fuller note.
+`post-scaffolding.md` for the fuller note, and `ai-usage-log.md` for a
+running record of every AI-assisted change made to this repo.
 
 # Feature Docs
 

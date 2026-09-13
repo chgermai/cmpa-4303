@@ -121,6 +121,10 @@ nav ul {
   opacity: 0.6;
 }
 
+.recent-posts {
+  margin-top: var(--space-5);
+}
+
 .badge {
   display: inline-block;
   margin-top: var(--space-4);
@@ -200,6 +204,7 @@ main p a {
 
 .post-card-title {
   margin: 0;
+  font-size: var(--font-size-h2);
   color: var(--color-accent);
 }
 
