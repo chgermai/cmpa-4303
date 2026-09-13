@@ -118,6 +118,11 @@ writing this log.
    back as it could be reconstructed, and to maintain it going forward in
    case questions come up about how AI was used for this assignment. This
    file is the result.
+10. **Remove the "Under Construction" badge.** Asked to "remove the
+    'Status: Under Construction' button and clean up the configuration."
+    Removed the `<p class="badge">` line from `index.html` and deleted the
+    now-unused `.badge` rule from `css/style.css` (checked first that
+    nothing else referenced it). → uncommitted as of this entry.
 
 ## Maintaining this log
 
