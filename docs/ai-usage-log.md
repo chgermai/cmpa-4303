@@ -163,6 +163,23 @@ entry is the durable record instead.
     transcript before it was removed — this just stops treating the raw
     file as something the repo keeps up to date.
 
+### 2026-09-20 — Post search
+
+Not yet committed as of this entry.
+
+1. **Plan the feature.** Prompt: *"I want to add a search feature to the
+   ./posts/index.html page. Don't make any changes let's plan this out and
+   review what is needed."* plus the requirements (text input above the
+   list, case-insensitive title/excerpt filtering as the user types, a
+   notice when nothing matches, a clear option, same responsive design).
+   The AI read `posts/index.html`, `css/style.css`, `js/random-post.js`, and
+   the existing `docs/`, then wrote a plan. No files in the repo were
+   changed during planning; the plan was approved before any edits.
+2. **Implement it.** Added the search markup to `posts/index.html`, a new
+   `js/post-search.js` (live filter, empty-state notice, Clear button,
+   Escape to clear), new `.post-search*` rules in `css/style.css` reusing
+   existing tokens, and `docs/post-search.md`.
+
 ## Maintaining this log
 
 New AI-assisted work gets a new dated entry above, in the same format: what
