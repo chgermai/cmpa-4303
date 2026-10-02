@@ -122,11 +122,11 @@ nav ul {
 }
 
 .recent-posts {
-  margin-top: var(--space-5);
+  margin-top: var(--space-4);
 }
 
 .home-search {
-  margin-top: var(--space-4);
+  margin-top: var(--space-5);
 }
 
 .home-search-submit {
