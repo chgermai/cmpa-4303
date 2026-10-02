@@ -274,6 +274,27 @@ Not yet committed as of this entry.
    at 0; tall window shows no scrollbar at all (content already fits).
    Documented in `docs/post-filters-sidebar.md`.
 
+### 2026-10-02 — Homepage search box
+
+Not yet committed as of this entry.
+
+1. **Request.** Prompt: *"Now I want to add a search option to the
+   homepage. Just a search box but under the search box lets add a link
+   to the Posts page with a description of search by category."*
+2. **Implement it.** Added a search box to `index.html` as a plain GET
+   form (`action="./posts/index.html"`, `name="q"`) — no JavaScript needed
+   on the homepage, since submitting a GET form is a native browser
+   behavior. Added a `?q=` reader to `js/post-search.js` so the Posts page
+   pre-fills and runs the search on arrival (and opens the mobile filters
+   panel if it would otherwise hide the active query). Below the form,
+   added a link to the Posts page describing its category/tag filter.
+   Reused the existing `.post-search`/`.button` classes rather than
+   introducing new form styling. Verified over a local HTTP server that
+   `posts/index.html?q=vpn` pre-fills the input, filters to the matching
+   post, and opens the panel on mobile but not desktop; verified a plain
+   visit with no query leaves the panel collapsed as before. Wrote
+   `docs/home-search.md`.
+
 ## Maintaining this log
 
 New AI-assisted work gets a new dated entry above, in the same format: what

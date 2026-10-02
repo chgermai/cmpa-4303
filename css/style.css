@@ -125,6 +125,19 @@ nav ul {
   margin-top: var(--space-5);
 }
 
+.home-search {
+  margin-top: var(--space-4);
+}
+
+.home-search-submit {
+  margin-top: 0;
+}
+
+.home-search-browse {
+  margin-top: var(--space-2);
+  color: var(--color-muted);
+}
+
 @media (min-width: 768px) {
   :root {
     --content-max-width: 720px;

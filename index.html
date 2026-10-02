@@ -29,6 +29,18 @@
         hopefully avoided in the future.
       </p>
 
+      <section class="home-search">
+        <h2>Search Posts</h2>
+        <form action="./posts/index.html" method="get" class="post-search">
+          <label for="home-search-input" class="post-search-label">Search posts</label>
+          <input type="search" id="home-search-input" name="q" class="post-search-input" placeholder="Search" autocomplete="off" />
+          <button type="submit" class="button home-search-submit">Search</button>
+        </form>
+        <p class="home-search-browse">
+          Looking for something specific? <a href="./posts/index.html">Browse the Posts page</a> to filter every post by category tag.
+        </p>
+      </section>
+
       <p>
         <button type="button" id="random-post" class="button">
           Take me to a random post
