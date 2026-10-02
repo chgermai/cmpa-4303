@@ -180,6 +180,36 @@ Not yet committed as of this entry.
    Escape to clear), new `.post-search*` rules in `css/style.css` reusing
    existing tokens, and `docs/post-search.md`.
 
+### 2026-10-01 — Tag/category filtering
+
+Not yet committed as of this entry.
+
+1. **Plan the feature.** Prompt: *"I want to add category/tag filtering to
+   the Posts page (posts/index.html) Individual posts pages already
+   include tags. Reuse the existing tag data. There's also a live search
+   feature on posts/index.html, follow that same pattern for
+   consistency."* The AI confirmed (via `grep` across all post pages) that
+   every post already states its tags in its `post-meta` line, and that
+   none of that tag data existed on `posts/index.html` itself. It asked the
+   owner two clarifying questions before writing the plan: whether
+   selecting multiple tags should require all of them or any of them, and
+   whether each card should visibly show its own tags. The owner picked
+   "match any selected tag (OR)" and "yes, show tags on each card." No
+   files were changed during planning; the plan was approved before any
+   edits.
+2. **Implement it.** Copied each post's existing tags onto its card in
+   `posts/index.html` as a `data-tags` attribute and a visible
+   `.post-card-tags` line, and added 36 toggle buttons (one per unique tag)
+   above the list. Because the tag filter and the existing text search both
+   need to narrow the same list with AND logic, the AI introduced a small
+   shared engine, `js/post-filters.js`, and refactored `js/post-search.js`
+   to register a predicate with it instead of setting `hidden` directly;
+   the new `js/post-tags.js` does the same for tag selection. Added
+   `.tag-filter`/`.tag-chip*` rules to `css/style.css` reusing existing
+   color/spacing tokens, wrote `docs/post-tag-filter.md`, and updated
+   `docs/post-search.md`'s description of how search now hooks into the
+   shared engine.
+
 ## Maintaining this log
 
 New AI-assisted work gets a new dated entry above, in the same format: what

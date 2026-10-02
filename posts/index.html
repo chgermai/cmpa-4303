@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Posts — Views From the On-Call Chair</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/post-filters.js" defer></script>
     <script src="../js/post-search.js" defer></script>
+    <script src="../js/post-tags.js" defer></script>
   </head>
   <body>
     <header class="container">
@@ -26,199 +28,267 @@
         <button type="button" id="post-search-clear" class="button post-search-clear" hidden>Clear</button>
       </div>
 
+      <div class="tag-filter">
+        <span class="tag-filter-label">Filter by tag</span>
+        <button type="button" class="tag-chip" data-tag="addressing" aria-pressed="false">addressing</button>
+        <button type="button" class="tag-chip" data-tag="asymmetric-routing" aria-pressed="false">asymmetric-routing</button>
+        <button type="button" class="tag-chip" data-tag="automation" aria-pressed="false">automation</button>
+        <button type="button" class="tag-chip" data-tag="bgp" aria-pressed="false">bgp</button>
+        <button type="button" class="tag-chip" data-tag="broadcast" aria-pressed="false">broadcast</button>
+        <button type="button" class="tag-chip" data-tag="change-management" aria-pressed="false">change-management</button>
+        <button type="button" class="tag-chip" data-tag="config-management" aria-pressed="false">config-management</button>
+        <button type="button" class="tag-chip" data-tag="data-center" aria-pressed="false">data-center</button>
+        <button type="button" class="tag-chip" data-tag="decommissioning" aria-pressed="false">decommissioning</button>
+        <button type="button" class="tag-chip" data-tag="dns" aria-pressed="false">dns</button>
+        <button type="button" class="tag-chip" data-tag="fiber" aria-pressed="false">fiber</button>
+        <button type="button" class="tag-chip" data-tag="firewall" aria-pressed="false">firewall</button>
+        <button type="button" class="tag-chip" data-tag="firmware" aria-pressed="false">firmware</button>
+        <button type="button" class="tag-chip" data-tag="hardware" aria-pressed="false">hardware</button>
+        <button type="button" class="tag-chip" data-tag="link-aggregation" aria-pressed="false">link-aggregation</button>
+        <button type="button" class="tag-chip" data-tag="load-balancer" aria-pressed="false">load-balancer</button>
+        <button type="button" class="tag-chip" data-tag="maintenance" aria-pressed="false">maintenance</button>
+        <button type="button" class="tag-chip" data-tag="max-prefix" aria-pressed="false">max-prefix</button>
+        <button type="button" class="tag-chip" data-tag="migration" aria-pressed="false">migration</button>
+        <button type="button" class="tag-chip" data-tag="monitoring" aria-pressed="false">monitoring</button>
+        <button type="button" class="tag-chip" data-tag="multicast" aria-pressed="false">multicast</button>
+        <button type="button" class="tag-chip" data-tag="peering" aria-pressed="false">peering</button>
+        <button type="button" class="tag-chip" data-tag="physical-layer" aria-pressed="false">physical-layer</button>
+        <button type="button" class="tag-chip" data-tag="ptp" aria-pressed="false">ptp</button>
+        <button type="button" class="tag-chip" data-tag="redundancy" aria-pressed="false">redundancy</button>
+        <button type="button" class="tag-chip" data-tag="remote-access" aria-pressed="false">remote-access</button>
+        <button type="button" class="tag-chip" data-tag="route-redistribution" aria-pressed="false">route-redistribution</button>
+        <button type="button" class="tag-chip" data-tag="routing" aria-pressed="false">routing</button>
+        <button type="button" class="tag-chip" data-tag="subsea-cable" aria-pressed="false">subsea-cable</button>
+        <button type="button" class="tag-chip" data-tag="switching" aria-pressed="false">switching</button>
+        <button type="button" class="tag-chip" data-tag="timing" aria-pressed="false">timing</button>
+        <button type="button" class="tag-chip" data-tag="tls" aria-pressed="false">tls</button>
+        <button type="button" class="tag-chip" data-tag="vendor-bug" aria-pressed="false">vendor-bug</button>
+        <button type="button" class="tag-chip" data-tag="video" aria-pressed="false">video</button>
+        <button type="button" class="tag-chip" data-tag="virtual-networks" aria-pressed="false">virtual-networks</button>
+        <button type="button" class="tag-chip" data-tag="vpn" aria-pressed="false">vpn</button>
+        <button type="button" id="tag-filter-clear" class="button tag-filter-clear" hidden>Clear tags</button>
+      </div>
+
       <ul class="post-list">
-        <li class="post-card">
+        <li class="post-card" data-tags="automation,change-management">
           <a class="post-card-link" href="./26-the-config-push-that-should-not-have-happened.html">
             <h2 class="post-card-title">The Config Push That Should Not Have Happened</h2>
             <p class="post-card-date">Aug 2026</p>
             <p class="post-card-desc">Someone adding new devices to an automation tool accidentally aimed a live configuration push at production, and production noticed immediately.</p>
+            <p class="post-card-tags">automation, change-management</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="bgp,peering">
           <a class="post-card-link" href="./25-too-many-routes-not-enough-limit.html">
             <h2 class="post-card-title">Too Many Routes, Not Enough Limit</h2>
             <p class="post-card-date">Aug 2026</p>
             <p class="post-card-desc">A network session dropped simply because it was told it could not possibly be receiving that many routes, even though it was.</p>
+            <p class="post-card-tags">bgp, peering</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="bgp,firmware">
           <a class="post-card-link" href="./27-the-tools-that-cried-wolf.html">
             <h2 class="post-card-title">The Tools That Cried Wolf</h2>
             <p class="post-card-date">Mar 2026</p>
             <p class="post-card-desc">A quiet firmware bug took down a legacy router, and half our toolchain took it personally.</p>
+            <p class="post-card-tags">bgp, firmware</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="video,change-management">
           <a class="post-card-link" href="./24-the-video-hiccup-heard-down-south.html">
             <h2 class="post-card-title">The Video Hiccup Heard Down South</h2>
             <p class="post-card-date">Oct 2025</p>
             <p class="post-card-desc">A routine network change briefly took a few hundred live channels off the air, which is a fun way to find out how many live channels you actually have.</p>
+            <p class="post-card-tags">video, change-management</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="fiber,physical-layer">
           <a class="post-card-link" href="./23-four-strands-of-glass.html">
             <h2 class="post-card-title">Four Strands of Glass</h2>
             <p class="post-card-date">Oct 2025</p>
             <p class="post-card-desc">Business apps went quiet for nearly two hours because four glass strands between two buildings decided to stop cooperating at once.</p>
+            <p class="post-card-tags">fiber, physical-layer</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="load-balancer,vendor-bug">
           <a class="post-card-link" href="./22-the-load-balancers-that-forgot-how-to-balance.html">
             <h2 class="post-card-title">The Load Balancers That Forgot How to Balance</h2>
             <p class="post-card-date">Aug 2025</p>
             <p class="post-card-desc">The machines whose entire job is staying calm and distributing load instead crashed repeatedly for over a week.</p>
+            <p class="post-card-tags">load-balancer, vendor-bug</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="timing,ptp">
           <a class="post-card-link" href="./21-the-clock-that-needed-a-very-specific-path.html">
             <h2 class="post-card-title">The Clock That Needed a Very Specific Path</h2>
             <p class="post-card-date">Jan 2024</p>
             <p class="post-card-desc">A network cleanup removed some links that looked redundant and unnecessary on paper, except one very picky protocol needed them specifically.</p>
+            <p class="post-card-tags">timing, ptp</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="dns,firewall">
           <a class="post-card-link" href="./20-the-firewall-rule-that-forgot-its-own-name.html">
             <h2 class="post-card-title">The Firewall Rule That Forgot Its Own Name</h2>
             <p class="post-card-date">Oct 2023</p>
             <p class="post-card-desc">Renaming a label on a firewall rule quietly broke DNS for an entire site, because the rename did not take the way everyone assumed it had.</p>
+            <p class="post-card-tags">dns, firewall</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="broadcast,redundancy">
           <a class="post-card-link" href="./19-when-both-feeds-lean-on-the-same-crutch.html">
             <h2 class="post-card-title">When Both Feeds Lean on the Same Crutch</h2>
             <p class="post-card-date">Aug 2023</p>
             <p class="post-card-desc">A backup design meant to protect two independent live feeds turned out to secretly depend on the same single point of failure for both of them.</p>
+            <p class="post-card-tags">broadcast, redundancy</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="bgp,route-redistribution">
           <a class="post-card-link" href="./18-a-policy-so-quiet-it-fooled-everyone.html">
             <h2 class="post-card-title">A Policy So Quiet It Fooled Everyone</h2>
             <p class="post-card-date">Jun 2023</p>
             <p class="post-card-desc">A routine policy change silently stopped advertising a data center's own address space to the internet, and the immediate post change check somehow looked fine anyway.</p>
+            <p class="post-card-tags">bgp, route-redistribution</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="subsea-cable,redundancy">
           <a class="post-card-link" href="./17-the-night-both-wires-under-the-ocean-went-quiet.html">
             <h2 class="post-card-title">The Night Both Wires Under the Ocean Went Quiet</h2>
             <p class="post-card-date">Apr 2023</p>
             <p class="post-card-desc">Connectivity between two continents dropped because the backup path for an already broken cable picked the worst possible night for planned maintenance.</p>
+            <p class="post-card-tags">subsea-cable, redundancy</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="routing,change-management">
           <a class="post-card-link" href="./16-the-change-that-was-not-supposed-to-happen.html">
             <h2 class="post-card-title">The Change That Was Not Supposed to Happen</h2>
             <p class="post-card-date">Mar 2023</p>
             <p class="post-card-desc">While fixing one small, unrelated issue, someone made an edit that was never supposed to touch production, and production noticed fast.</p>
+            <p class="post-card-tags">routing, change-management</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="vpn,remote-access">
           <a class="post-card-link" href="./15-the-vpn-that-picked-a-fight-with-itself.html">
             <h2 class="post-card-title">The VPN That Picked a Fight With Itself</h2>
             <p class="post-card-date">Feb 2023</p>
             <p class="post-card-desc">Remote access ground to a halt for an entire region, and it took two unrelated bugs colliding to do it.</p>
+            <p class="post-card-tags">vpn, remote-access</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="tls,video">
           <a class="post-card-link" href="./14-the-certificate-that-expired-quietly.html">
             <h2 class="post-card-title">The Certificate That Expired Quietly</h2>
             <p class="post-card-date">Apr 2022</p>
             <p class="post-card-desc">An entire platform for on demand video stopped starting playback for everyone, because a security certificate simply ran out the clock.</p>
+            <p class="post-card-tags">tls, video</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="bgp,max-prefix">
           <a class="post-card-link" href="./13-the-limit-nobody-remembered-was-there.html">
             <h2 class="post-card-title">The Limit Nobody Remembered Was There</h2>
             <p class="post-card-date">Apr 2022</p>
             <p class="post-card-desc">Adding one new office network to the routing table was all it took to quietly exceed a limit set years earlier and drop every session on two routers at once.</p>
+            <p class="post-card-tags">bgp, max-prefix</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="bgp,asymmetric-routing">
           <a class="post-card-link" href="./12-the-day-the-internet-forgot-who-we-were.html">
             <h2 class="post-card-title">The Day the Internet Forgot Who We Were</h2>
             <p class="post-card-date">Feb 2022</p>
             <p class="post-card-desc">One fiber cut caused a failover that worked exactly as designed, and then a second problem, caused by the fix for the first one, took out a completely different region.</p>
+            <p class="post-card-tags">bgp, asymmetric-routing</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="switching,virtual-networks">
           <a class="post-card-link" href="./11-the-switch-that-thought-it-had-a-partner.html">
             <h2 class="post-card-title">The Switch That Thought It Had a Partner</h2>
             <p class="post-card-date">Jan 2022</p>
             <p class="post-card-desc">Two brand new switches were configured to work as a pair, except neither one actually had a partner, and the network layer that depends on that pairing quietly broke.</p>
+            <p class="post-card-tags">switching, virtual-networks</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="addressing,broadcast">
           <a class="post-card-link" href="./10-two-new-neighbors-same-address.html">
             <h2 class="post-card-title">Two New Neighbors, Same Address</h2>
             <p class="post-card-date">Jan 2022</p>
             <p class="post-card-desc">Two newly deployed switches were handed the exact same internal address as two switches that already existed, and everyone found out the hard way.</p>
+            <p class="post-card-tags">addressing, broadcast</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="config-management,monitoring">
           <a class="post-card-link" href="./09-the-tool-that-cleaned-up-a-little-too-well.html">
             <h2 class="post-card-title">The Tool That Cleaned Up a Little Too Well</h2>
             <p class="post-card-date">Jan 2021</p>
             <p class="post-card-desc">A routine sync of switch configurations wiped out settings nobody had told the syncing tool about in the first place.</p>
+            <p class="post-card-tags">config-management, monitoring</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="multicast,migration">
           <a class="post-card-link" href="./08-the-multicast-that-forgot-to-say-please.html">
             <h2 class="post-card-title">The Multicast That Forgot to Say Please</h2>
             <p class="post-card-date">Jul 2020</p>
             <p class="post-card-desc">A migration went smoothly right up until the new equipment tried to join a group conversation nobody had actually invited it to.</p>
+            <p class="post-card-tags">multicast, migration</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="link-aggregation,broadcast">
           <a class="post-card-link" href="./07-the-cable-that-was-plugged-in-wrong-on-paper.html">
             <h2 class="post-card-title">The Cable That Was Plugged In Wrong, on Paper</h2>
             <p class="post-card-date">Jun 2020</p>
             <p class="post-card-desc">A same day router swap left a network connection configured just wrong enough to break playback for a national sports feed.</p>
+            <p class="post-card-tags">link-aggregation, broadcast</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="switching,config-management">
           <a class="post-card-link" href="./06-the-switch-swap-that-remembered-too-much.html">
             <h2 class="post-card-title">The Switch Swap That Remembered Too Much</h2>
             <p class="post-card-date">Apr 2020</p>
             <p class="post-card-desc">A brand new replacement switch was handed a configuration from its own memory that nobody wanted it to remember.</p>
+            <p class="post-card-tags">switching, config-management</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="decommissioning,routing">
           <a class="post-card-link" href="./05-decommissioning-day-goes-sideways.html">
             <h2 class="post-card-title">Decommissioning Day Goes Sideways</h2>
             <p class="post-card-date">Aug 2019</p>
             <p class="post-card-desc">Turning off equipment that was supposed to be safely retired quietly pulled the rug out from under the equipment that had replaced it.</p>
+            <p class="post-card-tags">decommissioning, routing</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="addressing,data-center">
           <a class="post-card-link" href="./04-the-address-two-devices-agreed-to-share.html">
             <h2 class="post-card-title">The Address Two Devices Agreed to Share</h2>
             <p class="post-card-date">May 2019</p>
             <p class="post-card-desc">An entire data center went unreachable because some new switches were handed addresses that already belonged to the devices in charge of getting traffic in and out.</p>
+            <p class="post-card-tags">addressing, data-center</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="hardware,multicast">
           <a class="post-card-link" href="./03-the-buffer-that-got-stuck.html">
             <h2 class="post-card-title">The Buffer That Got Stuck</h2>
             <p class="post-card-date">Feb 2018</p>
             <p class="post-card-desc">One single network port developed a very specific, very stubborn hardware problem that only affected traffic taking one particular path.</p>
+            <p class="post-card-tags">hardware, multicast</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="maintenance,redundancy">
           <a class="post-card-link" href="./02-two-cables-one-maintenance-window.html">
             <h2 class="post-card-title">Two Cables, One Maintenance Window</h2>
             <p class="post-card-date">May 2017</p>
             <p class="post-card-desc">A provider scheduled maintenance on both of a location's supposedly redundant circuits at the same time, which rather defeats the purpose of having two.</p>
+            <p class="post-card-tags">maintenance, redundancy</p>
           </a>
         </li>
-        <li class="post-card">
+        <li class="post-card" data-tags="bgp,redundancy">
           <a class="post-card-link" href="./01-the-limit-a-vendor-forgot-to-mention.html">
             <h2 class="post-card-title">The Limit a Vendor Forgot to Mention</h2>
             <p class="post-card-date">Apr 2017</p>
             <p class="post-card-desc">An internet provider quietly imposed a limit on how many routes it would accept from us, never told anyone, and then enforced it without warning.</p>
+            <p class="post-card-tags">bgp, redundancy</p>
           </a>
         </li>
       </ul>
 
-      <p id="post-search-empty" class="post-search-empty" role="status" hidden>No posts match your search.</p>
+      <p id="post-search-empty" class="post-search-empty" role="status" hidden>No posts match your filters.</p>
     </main>
   </body>
 </html>

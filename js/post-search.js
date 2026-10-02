@@ -1,47 +1,26 @@
 // Live search for the Posts page.
 //
-// Filters the static .post-card elements in posts/index.html by title and
-// excerpt (case-insensitive) as the user types, so the page's own markup stays
-// the single source of truth. Safe to load on pages without the search box; it
-// no-ops when #post-search-input is absent.
+// Registers a title/excerpt (case-insensitive) predicate with the shared
+// filtering engine in post-filters.js, so it combines (AND) with any other
+// active filter, such as the tag chips in post-tags.js. Safe to load on
+// pages without the search box, or without post-filters.js; it no-ops in
+// either case.
 (function () {
   const input = document.getElementById("post-search-input");
   if (!input) return;
+  if (!window.postFilters) return;
 
   const clearButton = document.getElementById("post-search-clear");
-  const emptyNotice = document.getElementById("post-search-empty");
+  let query = "";
 
-  const cards = Array.from(document.querySelectorAll(".post-list .post-card")).map(
-    (card) => {
-      const title = card.querySelector(".post-card-title");
-      const desc = card.querySelector(".post-card-desc");
-      return {
-        card,
-        text: (
-          (title ? title.textContent : "") +
-          " " +
-          (desc ? desc.textContent : "")
-        ).toLowerCase(),
-      };
-    },
-  );
+  window.postFilters.registerFilter(function (entry) {
+    return entry.text.includes(query);
+  });
 
   function filter() {
-    const raw = input.value.trim();
-    const query = raw.toLowerCase();
-    let visible = 0;
-
-    cards.forEach(function (entry) {
-      const match = entry.text.includes(query);
-      entry.card.hidden = !match;
-      if (match) visible++;
-    });
-
+    query = input.value.trim().toLowerCase();
     clearButton.hidden = input.value === "";
-    emptyNotice.hidden = visible !== 0;
-    if (visible === 0) {
-      emptyNotice.textContent = 'No posts match "' + raw + '".';
-    }
+    window.postFilters.applyFilters();
   }
 
   function clear() {

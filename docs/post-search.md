@@ -21,12 +21,16 @@ site's existing design and responsive approach.
 - On load it reads each `.post-card`'s `.post-card-title` and
   `.post-card-desc` text (lowercased) — the cards themselves are the single
   source of truth, so new posts are searchable with no extra work.
-- On `input`, the query is trimmed and lowercased; each card's `hidden`
-  attribute is set by a substring match. Whitespace-only counts as empty.
-  The date is intentionally not searched.
-- If no cards match, the notice is shown (query inserted via `textContent`).
+- On load, a substring-match predicate is registered once with the shared
+  filtering engine in `js/post-filters.js` (see `docs/post-tag-filter.md`).
+  On `input`, `post-search.js` just updates the query and calls
+  `window.postFilters.applyFilters()`. This is what lets search and the tag
+  filter chips combine (AND) instead of each one fighting over `hidden`.
+  Whitespace-only counts as empty. The date is intentionally not searched.
+- If no cards match any active filter, `post-filters.js` shows the shared
+  `#post-search-empty` notice.
 - The Clear button (shown only when the input has text) and the Escape key
-  empty the input, restore all cards, and refocus the input.
+  empty the input, re-run the filter, and refocus the input.
 - `random-post.js` parses `posts/index.html` as static text, so filtering
   (a runtime-only change) does not affect it.
 
