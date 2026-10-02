@@ -387,10 +387,23 @@ main p a {
   .post-filters-sidebar {
     position: sticky;
     top: var(--space-3);
+    /* Cap the sidebar to the viewport height (minus top/bottom breathing
+       room) so a short window doesn't make it taller than the screen.
+       Sticky alone isn't enough: once the sidebar is taller than the
+       viewport, it only "releases" from `top` near the end of the grid
+       row, which here is set by the much taller post list — so without
+       this, reaching the sidebar's lower tag chips means scrolling
+       through nearly the whole list. Capping the height and letting
+       .filters-panel scroll internally (below) keeps the sidebar fully
+       reachable on its own. */
+    max-height: calc(100vh - var(--space-3) * 2);
+    display: flex;
+    flex-direction: column;
   }
 
   .post-filters-heading {
     display: block;
+    flex: 0 0 auto;
     margin: 0 0 var(--space-2);
     font-size: var(--font-size-h2);
     color: var(--color-accent);
@@ -402,6 +415,10 @@ main p a {
 
   .filters-panel {
     margin-top: 0;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding-bottom: var(--space-1);
   }
 
   /* The panel stays open at this width regardless of the `hidden`

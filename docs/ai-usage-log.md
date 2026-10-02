@@ -253,6 +253,27 @@ Not yet committed as of this entry.
    matches body text and a heading common to every post, not just card
    text, and that an unmatched query still shows the empty-state notice.
 
+### 2026-10-02 — Fix: sidebar unreachable on short screens
+
+Not yet committed as of this entry.
+
+1. **Report the bug.** Prompt: *"I am seeing one issue on the sidebar. On
+   a short screen i need to scroll through all the posts to allow the
+   sidebar to scroll."* The cause: `position: sticky` only releases an
+   element once its containing grid row's edge scrolls into view, which
+   here is set by the much taller post list — so on a short window, the
+   sidebar (36 tag chips) could be taller than the screen with no way to
+   reach its lower chips short of scrolling nearly the whole list.
+2. **Fix it.** In `css/style.css`, capped `.post-filters-sidebar` to
+   `max-height: calc(100vh - var(--space-3) * 2)` at `@media (min-width:
+   768px)` and made it a column flexbox: the "Filters" heading stays fixed
+   size, and `.filters-panel` (search + tags) becomes the flexible,
+   independently-scrolling piece (`overflow-y: auto`). Verified in
+   headless Chrome at a short (1200×500) and a tall (1200×1400) viewport:
+   short window scrolls the panel internally while `window.scrollY` stays
+   at 0; tall window shows no scrollbar at all (content already fits).
+   Documented in `docs/post-filters-sidebar.md`.
+
 ## Maintaining this log
 
 New AI-assisted work gets a new dated entry above, in the same format: what

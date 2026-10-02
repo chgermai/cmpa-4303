@@ -87,3 +87,20 @@ narrower per card than before this change (sidebar now takes some of that
 width), though still two columns. It doesn't get a dedicated wider
 breakpoint to fix that, consistent with the site's one-breakpoint
 convention (see `docs/responsive-scaffolding.md`).
+
+## Fix: short screens needed to scroll the whole list to scroll the sidebar
+
+`position: sticky` only "releases" an element from its stuck position once
+its containing block's edge scrolls into view — here, the grid row shared
+with the (much taller) post list. With 36 tag chips, the sidebar is often
+taller than a short browser window, so before this fix, reaching its lower
+chips meant scrolling nearly the entire post list first.
+
+Fix (desktop only, `@media (min-width: 768px)`): `.post-filters-sidebar`
+is capped to `max-height: calc(100vh - var(--space-3) * 2)` and laid out as
+a column flexbox — the "Filters" heading stays a fixed-size flex item,
+and `.filters-panel` (the search box + tag chips) is the flexible item
+(`flex: 1 1 auto; min-height: 0;`) with `overflow-y: auto`, so once the
+sidebar hits its height cap, the panel scrolls on its own, independent of
+the page. On a tall-enough window the panel fits entirely and no scrollbar
+appears — this only kicks in when the screen is actually too short.
