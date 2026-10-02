@@ -210,6 +210,27 @@ Not yet committed as of this entry.
    `docs/post-search.md`'s description of how search now hooks into the
    shared engine.
 
+### 2026-10-01 — Filters sidebar
+
+Not yet committed as of this entry.
+
+1. **Clarify mobile behavior.** Prompt: *"Can we create a side bar that
+   provides the general search and tag search. How will it work on a
+   mobile device?"* Before building anything, the AI asked the owner to
+   pick between three mobile options (always-stacked, a collapsible
+   toggle panel, or an off-canvas drawer) and whether the sidebar should
+   be sticky on desktop. The owner chose the collapsible toggle panel
+   (closed by default) and a sticky desktop sidebar.
+2. **Implement it.** Wrapped the existing search box and tag chips in
+   `<aside class="post-filters-sidebar">` next to the post list, inside a
+   new `.posts-layout` grid in `posts/index.html`. Added a "Filters"
+   toggle button and `js/filters-panel.js` for the mobile collapse (CSS
+   alone keeps the panel always open at desktop widths and hides the
+   toggle there), a sticky `position: sticky` sidebar at
+   `@media (min-width: 768px)`, and widened just this page's container
+   (`.container.posts-page`) so the new sidebar column doesn't crowd the
+   existing two-column card grid. Wrote `docs/post-filters-sidebar.md`.
+
 ## Maintaining this log
 
 New AI-assisted work gets a new dated entry above, in the same format: what

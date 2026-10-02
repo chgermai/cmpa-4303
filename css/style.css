@@ -319,3 +319,96 @@ main p a {
 .tag-filter-clear {
   margin-top: 0;
 }
+
+/* Posts page: search + tag sidebar */
+
+.posts-layout {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.post-filters-heading {
+  display: none;
+}
+
+.filters-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font: inherit;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+}
+
+.filters-toggle:hover,
+.filters-toggle:focus-visible {
+  border-color: var(--color-accent);
+}
+
+.filters-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.filters-toggle-icon {
+  transition: transform 0.15s ease;
+}
+
+.filters-toggle[aria-expanded="true"] .filters-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.filters-panel {
+  margin-top: var(--space-2);
+}
+
+.filters-panel[hidden] {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  /* Widen just this page's container so a sidebar column doesn't crowd
+     the two-column card grid inherited from .post-list. */
+  .container.posts-page {
+    --content-max-width: 960px;
+  }
+
+  .posts-layout {
+    grid-template-columns: 220px 1fr;
+    align-items: start;
+  }
+
+  .post-filters-sidebar {
+    position: sticky;
+    top: var(--space-3);
+  }
+
+  .post-filters-heading {
+    display: block;
+    margin: 0 0 var(--space-2);
+    font-size: var(--font-size-h2);
+    color: var(--color-accent);
+  }
+
+  .filters-toggle {
+    display: none;
+  }
+
+  .filters-panel {
+    margin-top: 0;
+  }
+
+  /* The panel stays open at this width regardless of the `hidden`
+     attribute the mobile toggle (js/filters-panel.js) may have left on
+     it — the toggle button itself is hidden above, so there's no control
+     to close it here anyway. */
+  .filters-panel[hidden] {
+    display: block;
+  }
+}
