@@ -19,3 +19,12 @@ The goal of this project was to take advantage of a backlog of real on-call inci
 
 Website URL: https://chgermai.github.io/cmpa-4303/
 Repository: https://github.com/chgermai/cmpa-4303
+
+## What changed from Project 01 to Project 02?
+
+P01 shipped with 27 posts already but did not include a way to search through them. For P02, I added several components to make the site more usable:
+
+- **Live search:** Added a client-side search box on the Posts page that filters the posts as you type, with a "no results" message instead of leaving the list blank.
+- **Tag filtering:** Added a "Filter by tag" sidebar on the Posts page. The tag list is generated from the metadata in each post.
+- **RSS Feed:** I added an RSS feed that will share up to 50 posts
+- **Responsive Design:** I made adjustments to the flow and mobile view to make it usable across different devices. As an example, the sidebar for search and filtering is a collapsible menu on top for narrow screens.
