@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Views From the On-Call Chair</title>
+    <link>https://chgermai.github.io/cmpa-4303/</link>
+    <description>War stories, outages, and jargon translated for regular people.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Oct 2026 21:53:05 GMT</lastBuildDate>
+    <item>
+      <title>The Config Push That Should Not Have Happened</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/26-the-config-push-that-should-not-have-happened.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/26-the-config-push-that-should-not-have-happened.html</guid>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Someone adding new devices to an automation tool accidentally aimed a live configuration push at production, and production noticed immediately.</description>
+    </item>
+    <item>
+      <title>Too Many Routes, Not Enough Limit</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/25-too-many-routes-not-enough-limit.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/25-too-many-routes-not-enough-limit.html</guid>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+      <description>A network session dropped simply because it was told it could not possibly be receiving that many routes, even though it was.</description>
+    </item>
+    <item>
+      <title>The Tools That Cried Wolf</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/27-the-tools-that-cried-wolf.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/27-the-tools-that-cried-wolf.html</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <description>A quiet firmware bug took down a legacy router, and half our toolchain took it personally.</description>
+    </item>
+    <item>
+      <title>The Video Hiccup Heard Down South</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/24-the-video-hiccup-heard-down-south.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/24-the-video-hiccup-heard-down-south.html</guid>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 GMT</pubDate>
+      <description>A routine network change briefly took a few hundred live channels off the air, which is a fun way to find out how many live channels you actually have.</description>
+    </item>
+    <item>
+      <title>Four Strands of Glass</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/23-four-strands-of-glass.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/23-four-strands-of-glass.html</guid>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 GMT</pubDate>
+      <description>Business apps went quiet for nearly two hours because four glass strands between two buildings decided to stop cooperating at once.</description>
+    </item>
+    <item>
+      <title>The Load Balancers That Forgot How to Balance</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/22-the-load-balancers-that-forgot-how-to-balance.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/22-the-load-balancers-that-forgot-how-to-balance.html</guid>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 GMT</pubDate>
+      <description>The machines whose entire job is staying calm and distributing load instead crashed repeatedly for over a week.</description>
+    </item>
+    <item>
+      <title>The Clock That Needed a Very Specific Path</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/21-the-clock-that-needed-a-very-specific-path.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/21-the-clock-that-needed-a-very-specific-path.html</guid>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate>
+      <description>A network cleanup removed some links that looked redundant and unnecessary on paper, except one very picky protocol needed them specifically.</description>
+    </item>
+    <item>
+      <title>The Firewall Rule That Forgot Its Own Name</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/20-the-firewall-rule-that-forgot-its-own-name.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/20-the-firewall-rule-that-forgot-its-own-name.html</guid>
+      <pubDate>Sun, 01 Oct 2023 00:00:00 GMT</pubDate>
+      <description>Renaming a label on a firewall rule quietly broke DNS for an entire site, because the rename did not take the way everyone assumed it had.</description>
+    </item>
+    <item>
+      <title>When Both Feeds Lean on the Same Crutch</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/19-when-both-feeds-lean-on-the-same-crutch.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/19-when-both-feeds-lean-on-the-same-crutch.html</guid>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 GMT</pubDate>
+      <description>A backup design meant to protect two independent live feeds turned out to secretly depend on the same single point of failure for both of them.</description>
+    </item>
+    <item>
+      <title>A Policy So Quiet It Fooled Everyone</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/18-a-policy-so-quiet-it-fooled-everyone.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/18-a-policy-so-quiet-it-fooled-everyone.html</guid>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 GMT</pubDate>
+      <description>A routine policy change silently stopped advertising a data center&apos;s own address space to the internet, and the immediate post change check somehow looked fine anyway.</description>
+    </item>
+    <item>
+      <title>The Night Both Wires Under the Ocean Went Quiet</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/17-the-night-both-wires-under-the-ocean-went-quiet.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/17-the-night-both-wires-under-the-ocean-went-quiet.html</guid>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 GMT</pubDate>
+      <description>Connectivity between two continents dropped because the backup path for an already broken cable picked the worst possible night for planned maintenance.</description>
+    </item>
+    <item>
+      <title>The Change That Was Not Supposed to Happen</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/16-the-change-that-was-not-supposed-to-happen.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/16-the-change-that-was-not-supposed-to-happen.html</guid>
+      <pubDate>Wed, 01 Mar 2023 00:00:00 GMT</pubDate>
+      <description>While fixing one small, unrelated issue, someone made an edit that was never supposed to touch production, and production noticed fast.</description>
+    </item>
+    <item>
+      <title>The VPN That Picked a Fight With Itself</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/15-the-vpn-that-picked-a-fight-with-itself.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/15-the-vpn-that-picked-a-fight-with-itself.html</guid>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 GMT</pubDate>
+      <description>Remote access ground to a halt for an entire region, and it took two unrelated bugs colliding to do it.</description>
+    </item>
+    <item>
+      <title>The Certificate That Expired Quietly</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/14-the-certificate-that-expired-quietly.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/14-the-certificate-that-expired-quietly.html</guid>
+      <pubDate>Fri, 01 Apr 2022 00:00:00 GMT</pubDate>
+      <description>An entire platform for on demand video stopped starting playback for everyone, because a security certificate simply ran out the clock.</description>
+    </item>
+    <item>
+      <title>The Limit Nobody Remembered Was There</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/13-the-limit-nobody-remembered-was-there.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/13-the-limit-nobody-remembered-was-there.html</guid>
+      <pubDate>Fri, 01 Apr 2022 00:00:00 GMT</pubDate>
+      <description>Adding one new office network to the routing table was all it took to quietly exceed a limit set years earlier and drop every session on two routers at once.</description>
+    </item>
+    <item>
+      <title>The Day the Internet Forgot Who We Were</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/12-the-day-the-internet-forgot-who-we-were.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/12-the-day-the-internet-forgot-who-we-were.html</guid>
+      <pubDate>Tue, 01 Feb 2022 00:00:00 GMT</pubDate>
+      <description>One fiber cut caused a failover that worked exactly as designed, and then a second problem, caused by the fix for the first one, took out a completely different region.</description>
+    </item>
+    <item>
+      <title>The Switch That Thought It Had a Partner</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/11-the-switch-that-thought-it-had-a-partner.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/11-the-switch-that-thought-it-had-a-partner.html</guid>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 GMT</pubDate>
+      <description>Two brand new switches were configured to work as a pair, except neither one actually had a partner, and the network layer that depends on that pairing quietly broke.</description>
+    </item>
+    <item>
+      <title>Two New Neighbors, Same Address</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/10-two-new-neighbors-same-address.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/10-two-new-neighbors-same-address.html</guid>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 GMT</pubDate>
+      <description>Two newly deployed switches were handed the exact same internal address as two switches that already existed, and everyone found out the hard way.</description>
+    </item>
+    <item>
+      <title>The Tool That Cleaned Up a Little Too Well</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/09-the-tool-that-cleaned-up-a-little-too-well.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/09-the-tool-that-cleaned-up-a-little-too-well.html</guid>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 GMT</pubDate>
+      <description>A routine sync of switch configurations wiped out settings nobody had told the syncing tool about in the first place.</description>
+    </item>
+    <item>
+      <title>The Multicast That Forgot to Say Please</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/08-the-multicast-that-forgot-to-say-please.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/08-the-multicast-that-forgot-to-say-please.html</guid>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 GMT</pubDate>
+      <description>A migration went smoothly right up until the new equipment tried to join a group conversation nobody had actually invited it to.</description>
+    </item>
+    <item>
+      <title>The Cable That Was Plugged In Wrong, on Paper</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/07-the-cable-that-was-plugged-in-wrong-on-paper.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/07-the-cable-that-was-plugged-in-wrong-on-paper.html</guid>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 GMT</pubDate>
+      <description>A same day router swap left a network connection configured just wrong enough to break playback for a national sports feed.</description>
+    </item>
+    <item>
+      <title>The Switch Swap That Remembered Too Much</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/06-the-switch-swap-that-remembered-too-much.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/06-the-switch-swap-that-remembered-too-much.html</guid>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 GMT</pubDate>
+      <description>A brand new replacement switch was handed a configuration from its own memory that nobody wanted it to remember.</description>
+    </item>
+    <item>
+      <title>Decommissioning Day Goes Sideways</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/05-decommissioning-day-goes-sideways.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/05-decommissioning-day-goes-sideways.html</guid>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 GMT</pubDate>
+      <description>Turning off equipment that was supposed to be safely retired quietly pulled the rug out from under the equipment that had replaced it.</description>
+    </item>
+    <item>
+      <title>The Address Two Devices Agreed to Share</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/04-the-address-two-devices-agreed-to-share.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/04-the-address-two-devices-agreed-to-share.html</guid>
+      <pubDate>Wed, 01 May 2019 00:00:00 GMT</pubDate>
+      <description>An entire data center went unreachable because some new switches were handed addresses that already belonged to the devices in charge of getting traffic in and out.</description>
+    </item>
+    <item>
+      <title>The Buffer That Got Stuck</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/03-the-buffer-that-got-stuck.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/03-the-buffer-that-got-stuck.html</guid>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 GMT</pubDate>
+      <description>One single network port developed a very specific, very stubborn hardware problem that only affected traffic taking one particular path.</description>
+    </item>
+    <item>
+      <title>Two Cables, One Maintenance Window</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/02-two-cables-one-maintenance-window.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/02-two-cables-one-maintenance-window.html</guid>
+      <pubDate>Mon, 01 May 2017 00:00:00 GMT</pubDate>
+      <description>A provider scheduled maintenance on both of a location&apos;s supposedly redundant circuits at the same time, which rather defeats the purpose of having two.</description>
+    </item>
+    <item>
+      <title>The Limit a Vendor Forgot to Mention</title>
+      <link>https://chgermai.github.io/cmpa-4303/posts/01-the-limit-a-vendor-forgot-to-mention.html</link>
+      <guid isPermaLink="true">https://chgermai.github.io/cmpa-4303/posts/01-the-limit-a-vendor-forgot-to-mention.html</guid>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 GMT</pubDate>
+      <description>An internet provider quietly imposed a limit on how many routes it would accept from us, never told anyone, and then enforced it without warning.</description>
+    </item>
+  </channel>
+</rss>

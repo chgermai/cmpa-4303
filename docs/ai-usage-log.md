@@ -308,6 +308,55 @@ Not yet committed as of this entry.
    Confirmed by `grep` that this text isn't duplicated or set dynamically
    from JavaScript anywhere, so it only needed changing in that one place.
 
+### 2026-10-02 — Homepage section order
+
+Not yet committed as of this entry. (Logged one turn later than the work
+itself, from this same conversation — the quote below is exact, not
+reconstructed.)
+
+1. **Request.** Prompt: *"Lets update the homepage order. It should be
+   intro, recents posts, take me to a random post, and search in that
+   orer."*
+2. **Implement it.** Reordered the sections in `index.html` to match (the
+   intro paragraphs didn't move); swapped which of `.recent-posts` /
+   `.home-search` in `css/style.css` carries the larger top margin, since
+   `.home-search` is now the last section on the page instead of
+   `.recent-posts`.
+
+### 2026-10-02 — RSS feed
+
+Not yet committed as of this entry.
+
+1. **Request.** Prompt: *"I want to add an RSS feed to my site, via a
+   static XML file. Use existing data to build the XML. Generate a
+   feed.xml at the site root following the RSS 2.0 spec. Use the site's
+   title (...), link, and description, followed by one title per existing
+   post. Include all post until the list grows over 50 and then only
+   include last 50. Build it using a reusable script that can be run when
+   new posts are added. Add a link to the rss feed on the footer on every
+   page."* — including the exact `<link rel="alternate" ...>` tag to use.
+2. **Implement it.** Wrote `scripts/build-feed.js` (no dependencies),
+   which scrapes `posts/index.html`'s existing `.post-card` markup for
+   per-post data and `index.html`'s `<h1>`/`.subtitle` for the channel
+   title/description, same as the site's existing scripts already treat
+   `posts/index.html` as the single source of truth. Capped output at the
+   50 most recent posts; verified the cap by temporarily inflating
+   `posts/index.html` to 57 synthetic cards, confirming the script wrote
+   exactly 50 items, then restoring the real file. Validated the
+   generated `feed.xml` as well-formed XML and checked that a
+   title/excerpt containing an apostrophe escapes correctly.
+
+   Added a `<footer class="container">` with the requested
+   `<link rel="alternate" type="application/rss+xml" ...>` to every page
+   (`index.html`, `posts/index.html`, all 27 post pages, and
+   `docs/post-template.html` so future posts get it too) via a one-off
+   script, since no footer existed anywhere on the site before this.
+   **Deviated from the literal `href="/feed.xml"` given in the request**:
+   that root-relative path would 404 on this GitHub Pages *project* page
+   (served from a `/cmpa-4303/` subpath, not a custom domain at root) —
+   used `../feed.xml` / `./feed.xml` instead, matching the relative-path
+   convention the rest of the site already uses. Wrote `docs/rss-feed.md`.
+
 ## Maintaining this log
 
 New AI-assisted work gets a new dated entry above, in the same format: what
