@@ -357,6 +357,22 @@ Not yet committed as of this entry.
    used `../feed.xml` / `./feed.xml` instead, matching the relative-path
    convention the rest of the site already uses. Wrote `docs/rss-feed.md`.
 
+### 2026-10-02 — Visible RSS link on the homepage
+
+Not yet committed as of this entry.
+
+1. **Request.** Prompt: *"Let's add a visable link reference at the
+   bottom of the home page to subscribe to the RSS feed."* — a visible,
+   clickable link, as opposed to the invisible `<link rel="alternate">`
+   autodiscovery tag already added to every page's footer.
+2. **Implement it.** Added `<p class="footer-feed-link"><a
+   href="./feed.xml">Subscribe via RSS</a></p>` inside `index.html`'s
+   existing footer (homepage only, not every page). Added matching
+   `.footer-feed-link` / `.footer-feed-link a` rules to `css/style.css`
+   since nothing outside `main` had a default link color to inherit.
+   Verified with a headless-Chrome screenshot that it renders visibly, in
+   the site's accent color, at the bottom of the page.
+
 ## Maintaining this log
 
 New AI-assisted work gets a new dated entry above, in the same format: what

@@ -74,10 +74,21 @@ just takes the list in that order and caps it at the 50 most recent.
   Used the same page-relative convention as the rest of the site instead.
 - A `<link>` element renders nothing visible — this satisfies feed
   *autodiscovery* (what browsers/feed readers look for), not a clickable
-  "RSS" link a reader could see and click. If a visible one is wanted too,
-  that's a follow-up, not something assumed here.
+  "RSS" link a reader could see and click. A visible one was added
+  separately afterward (below).
 - Also added to `docs/post-template.html` so new posts get the footer
   without anyone having to remember to add it by hand.
+
+## Visible "Subscribe via RSS" link
+
+Added on request, homepage only (not every page, unlike the autodiscovery
+`<link>` above): a plain `<p class="footer-feed-link"><a href="./feed.xml">
+Subscribe via RSS</a></p>` inside `index.html`'s existing `<footer>`. New
+`.footer-feed-link` / `.footer-feed-link a` rules in `css/style.css` give
+it the same muted-label-plus-accent-link look used elsewhere (e.g.
+`.post-search-label`) — there's no sitewide default link color to inherit
+from outside `main`, so this needed its own rule rather than reusing
+`main p a`.
 
 ## Caveat
 

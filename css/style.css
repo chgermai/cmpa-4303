@@ -168,6 +168,16 @@ main p a {
   color: var(--color-accent);
 }
 
+.footer-feed-link {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.footer-feed-link a {
+  color: var(--color-accent);
+}
+
 .post-meta {
   color: var(--color-muted);
   margin-top: 0;
