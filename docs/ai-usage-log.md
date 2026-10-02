@@ -231,6 +231,28 @@ Not yet committed as of this entry.
    (`.container.posts-page`) so the new sidebar column doesn't crowd the
    existing two-column card grid. Wrote `docs/post-filters-sidebar.md`.
 
+### 2026-10-01 — Full-text search, placeholder fix
+
+Not yet committed as of this entry.
+
+1. **Request, with a screenshot.** Prompt: *"The text in the search box is
+   cutoff. Let's shorten it to say just search. In addition let's modify
+   the search to search all the text in each post."* The screenshot showed
+   the `placeholder` text ("Search titles and excerpts…") overflowing the
+   narrow sidebar input.
+2. **Implement it.** Shortened the placeholder to "Search" in
+   `posts/index.html`. For full-text search, extended `js/post-filters.js`
+   to fetch each post's own page (via its card's existing link) in the
+   background after load and fold that page's full `<main>` text into the
+   card's searchable text, re-running the active filters as each post's
+   text arrives; `js/post-search.js` itself didn't need to change, since it
+   already just reads whatever text is on the shared entry. Updated
+   `docs/post-search.md` to describe this (it previously only covered
+   title + excerpt). Verified over a local HTTP server (`fetch()` needs
+   one, same constraint `js/random-post.js` already had) that search now
+   matches body text and a heading common to every post, not just card
+   text, and that an unmatched query still shows the empty-state notice.
+
 ## Maintaining this log
 
 New AI-assisted work gets a new dated entry above, in the same format: what

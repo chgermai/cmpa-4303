@@ -2,10 +2,17 @@
 //
 // Text search (post-search.js) and tag chips (post-tags.js) both need to
 // narrow the same .post-card list, and their results must combine with AND
-// ("bgp" posts whose title/excerpt also matches the search text). Rather
-// than have each script fight over the same `hidden` attribute, each one
+// ("bgp" posts whose content also matches the search text). Rather than
+// have each script fight over the same `hidden` attribute, each one
 // registers a predicate here; applyFilters() re-evaluates every card against
 // every registered predicate and shows only the cards that pass them all.
+//
+// Each card's searchable `text` starts as its title + excerpt (so search
+// works immediately), then fetchFullText() below fetches that post's own
+// page in the background and folds its full text in, so search ends up
+// covering everything on the post, not just what's shown on the card. If a
+// fetch fails (e.g. opened via file://, see docs/random-post-button.md's
+// caveat), that post's search just stays limited to title + excerpt.
 //
 // Exposes window.postFilters. Safe to load on pages without a post list —
 // registerFilter/applyFilters become no-ops so scripts that depend on this
@@ -60,6 +67,32 @@ window.postFilters = (function () {
       emptyNotice.hidden = visible !== 0;
     }
   }
+
+  function fetchFullText() {
+    cards.forEach(function (entry) {
+      const link = entry.card.querySelector(".post-card-link");
+      const href = link ? link.getAttribute("href") : null;
+      if (!href) return;
+
+      fetch(href)
+        .then(function (res) {
+          if (!res.ok) throw new Error("Could not load " + href);
+          return res.text();
+        })
+        .then(function (html) {
+          const doc = new DOMParser().parseFromString(html, "text/html");
+          const main = doc.querySelector("main");
+          const fullText = (main ? main.textContent : doc.body.textContent) || "";
+          entry.text += " " + fullText.toLowerCase();
+          applyFilters();
+        })
+        .catch(function (err) {
+          console.error(err);
+        });
+    });
+  }
+
+  fetchFullText();
 
   return { registerFilter: registerFilter, applyFilters: applyFilters };
 })();
