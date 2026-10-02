@@ -295,6 +295,19 @@ Not yet committed as of this entry.
    visit with no query leaves the panel collapsed as before. Wrote
    `docs/home-search.md`.
 
+### 2026-10-02 — Empty-state message
+
+Not yet committed as of this entry.
+
+1. **Request.** Prompt: *"Let update the message on now searches being
+   found from 'No post match your filters' to 'Either it never happened,
+   or we never wrote it down.'"*
+2. **Implement it.** Changed the one-line static `#post-search-empty`
+   notice in `posts/index.html` from "No posts match your filters." to
+   "No matches. Either it never happened, or we never wrote it down."
+   Confirmed by `grep` that this text isn't duplicated or set dynamically
+   from JavaScript anywhere, so it only needed changing in that one place.
+
 ## Maintaining this log
 
 New AI-assisted work gets a new dated entry above, in the same format: what
